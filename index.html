@@ -9,7 +9,7 @@
 <!-- Tailwind CSS CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
 <!-- Google Fonts Be Vietnam Pro -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <!-- Font Awesome Icons -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
 <style>
@@ -1275,391 +1275,7 @@
             #wiz-screen-8 table td:first-child::before{display:none!important;}
         }
 
-        /* =========================================================
-           BIM LAND V07 HOME LANDING MERGE FROM Portal_NOXH_v07_Premium
-           Public Home/Landing page CSS copied from v07 Premium.
-           Private portal CSS from v06.7 is preserved.
-           ========================================================= */
-/* =========================================================
-       V7 PREMIUM EMERALD REDESIGN — Design language overhaul
-       Inspired by: Masterise × Apple × Stripe × Luxury Real Estate
-       Palette: #06281B / #0F5132 / #1D7A52 / #6EE7B7 / #F5FBF8
-       Typography: Inter (display) + Be Vietnam Pro (body)
-       Radius: 32px system. Shadow: Stripe-style depth.
-       Glass: backdrop-filter: blur(20px)
-       ========================================================= */
-    :root {
-        --e-ink: #06281B;
-        --e-deep: #0F5132;
-        --e-mid: #1D7A52;
-        --e-mint: #6EE7B7;
-        --e-foam: #F5FBF8;
-        --e-fog: rgba(6,40,27,0.07);
-        --e-line: rgba(6,40,27,0.10);
-        --e-shadow-sm: 0 4px 16px rgba(6,40,27,0.08);
-        --e-shadow-md: 0 12px 40px rgba(6,40,27,0.12);
-        --e-shadow-lg: 0 30px 80px rgba(6,40,27,0.18);
-        --e-shadow-xl: 0 48px 120px rgba(6,40,27,0.22);
-        --e-radius: 32px;
-        --e-radius-sm: 20px;
-        --e-radius-xs: 14px;
-    }
-
-    h1, h2, h3, h4, h5, h6,
-    .v2-title, .v7-display, .v7-hero-title {
-        font-family: 'Inter', 'Be Vietnam Pro', system-ui, sans-serif !important;
-        font-feature-settings: 'kern' 1, 'liga' 1;
-        letter-spacing: -0.04em !important;
-    }
-
-    /* HERO V7: Full-screen premium cinematic */
-    #hero-section {
-        min-height: 100vh !important;
-        padding-top: 5rem !important;
-        padding-bottom: 4rem !important;
-        background:
-            radial-gradient(ellipse 60% 50% at 80% 20%, rgba(110,231,183,0.18), transparent),
-            radial-gradient(ellipse 40% 60% at 10% 80%, rgba(217,119,6,0.12), transparent),
-            linear-gradient(160deg, #020f08 0%, #06281B 40%, #0F5132 75%, #06281B 100%) !important;
-        display: flex !important;
-        align-items: center !important;
-        border-bottom-left-radius: 0 !important;
-        border-bottom-right-radius: 0 !important;
-        position: relative;
-        overflow: hidden;
-    }
-
-    #hero-section::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image: radial-gradient(rgba(110,231,183,0.05) 1px, transparent 1px);
-        background-size: 32px 32px;
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    #hero-section::after {
-        content: '';
-        position: absolute;
-        right: -15rem;
-        bottom: -15rem;
-        width: 60rem;
-        height: 60rem;
-        border-radius: 9999px;
-        background: radial-gradient(circle, rgba(110,231,183,0.07) 0%, transparent 70%);
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    #hero-section > * { position: relative; z-index: 1; }
-    #hero-section .max-w-7xl { position: relative; z-index: 1; }
-
-    #hero-section h2 {
-        font-size: clamp(2.8rem, 6.5vw, 6rem) !important;
-        line-height: 0.96 !important;
-        letter-spacing: -0.05em !important;
-        font-weight: 900 !important;
-        font-family: 'Inter', 'Be Vietnam Pro', sans-serif !important;
-    }
-
-    /* HERO CTA BUTTONS — pill shape */
-    #hero-section button.bg-amber-500 {
-        border-radius: 9999px !important;
-        padding: 0.9rem 2rem !important;
-        font-size: 0.85rem !important;
-        box-shadow: 0 8px 28px rgba(217,119,6,0.3) !important;
-    }
-
-    #hero-section button.bg-\[\#0b3c26\] {
-        border-radius: 9999px !important;
-        padding: 0.9rem 2rem !important;
-        font-size: 0.85rem !important;
-        background: rgba(255,255,255,0.08) !important;
-        border: 1px solid rgba(255,255,255,0.18) !important;
-    }
-
-    /* FLOATING DASHBOARD CARD in Hero */
-    #hero-section > div > div:last-child > div {
-        background: rgba(255,255,255,0.06) !important;
-        backdrop-filter: blur(24px) saturate(1.4) !important;
-        -webkit-backdrop-filter: blur(24px) saturate(1.4) !important;
-        border: 1px solid rgba(110,231,183,0.2) !important;
-        border-radius: 28px !important;
-        box-shadow: 0 48px 120px rgba(6,40,27,0.3), inset 0 1px 0 rgba(255,255,255,0.08) !important;
-        position: relative;
-        overflow: hidden;
-    }
-
-    #hero-section > div > div:last-child > div::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, rgba(110,231,183,0.5), transparent);
-        pointer-events: none;
-    }
-
-    /* Hero countdown boxes */
-    #hero-section .grid-cols-4 > div {
-        background: rgba(6,40,27,0.5) !important;
-        border: 1px solid rgba(110,231,183,0.12) !important;
-        border-radius: 16px !important;
-        backdrop-filter: blur(12px) !important;
-    }
-
-    /* SECTIONS */
-    #project-overview { background: #fff; }
-    #amenities-section { background: #F5FBF8 !important; border-color: rgba(6,40,27,0.06) !important; }
-    #blueprint-section { background: #fff; }
-    #conditions-section { background: linear-gradient(180deg, #F5FBF8, #EDF7F2) !important; }
-    #qualification-survey { background: linear-gradient(180deg, #F0F9F5, #E8F5EF) !important; }
-
-    /* SECTION TITLE UPGRADE */
-    .v2-title {
-        font-family: 'Inter', 'Be Vietnam Pro', sans-serif !important;
-        color: #06281B !important;
-        font-size: clamp(2.2rem, 4vw, 3.6rem) !important;
-        letter-spacing: -0.05em !important;
-        line-height: 1.0 !important;
-        font-weight: 900 !important;
-    }
-
-    /* STAT CARDS */
-    .v2-stat-card {
-        border-radius: 20px !important;
-        border: 1px solid rgba(6,40,27,0.09) !important;
-        box-shadow: 0 4px 16px rgba(6,40,27,0.07) !important;
-        background: #fff !important;
-        transition: all 0.3s ease !important;
-    }
-
-    .v2-stat-card:hover {
-        border-color: rgba(29,122,82,0.2) !important;
-        box-shadow: 0 12px 40px rgba(6,40,27,0.12) !important;
-        transform: translateY(-4px) !important;
-    }
-
-    .v2-stat-number { color: #06281B !important; }
-
-    /* FLOW CARDS */
-    .v2-flow-card {
-        border-radius: 16px !important;
-        border: 1px solid rgba(6,40,27,0.09) !important;
-        background: #fff !important;
-        box-shadow: 0 4px 16px rgba(6,40,27,0.06) !important;
-        transition: all 0.25s ease !important;
-    }
-
-    .v2-flow-card:hover {
-        border-color: rgba(29,122,82,0.22) !important;
-        box-shadow: 0 12px 40px rgba(6,40,27,0.11) !important;
-        transform: translateY(-3px) !important;
-    }
-
-    .v2-flow-num {
-        background: linear-gradient(135deg, #06281B, #1D7A52) !important;
-        border-radius: 12px !important;
-        box-shadow: 0 6px 18px rgba(6,40,27,0.2) !important;
-    }
-
-    /* AMENITY CARDS */
-    .custom-card {
-        border-radius: 20px !important;
-        border: 1px solid rgba(6,40,27,0.08) !important;
-        box-shadow: 0 4px 16px rgba(6,40,27,0.07) !important;
-        transition: all 0.28s cubic-bezier(0.2,0.8,0.2,1) !important;
-    }
-
-    .custom-card:hover {
-        transform: translateY(-5px) !important;
-        box-shadow: 0 12px 40px rgba(6,40,27,0.12) !important;
-        border-color: rgba(29,122,82,0.2) !important;
-    }
-
-    /* SURVEY CARD */
-    .v2-survey-card {
-        border-radius: 32px !important;
-        border: 1px solid rgba(6,40,27,0.09) !important;
-        box-shadow: 0 12px 40px rgba(6,40,27,0.11) !important;
-        background: #fff !important;
-    }
-
-    /* CONDITIONS swipe cards */
-    .v2-swipe-card {
-        border-radius: 20px !important;
-        box-shadow: 0 12px 40px rgba(6,40,27,0.11) !important;
-        border: 1px solid rgba(6,40,27,0.09) !important;
-    }
-
-    /* HEADER: glassmorphism upgrade */
-    #public-view header.sticky {
-        background: rgba(245,251,248,0.9) !important;
-        backdrop-filter: blur(24px) saturate(1.5) !important;
-        -webkit-backdrop-filter: blur(24px) saturate(1.5) !important;
-        border-bottom: 1px solid rgba(6,40,27,0.08) !important;
-        box-shadow: 0 8px 32px rgba(6,40,27,0.07) !important;
-    }
-
-    /* NAV BUTTONS */
-    #public-view header nav button:hover {
-        background: rgba(6,40,27,0.06) !important;
-        color: #06281B !important;
-    }
-
-    /* CTA BUTTONS in header */
-    #public-view header button.bg-\[\#0b3c26\] {
-        border-radius: 9999px !important;
-        background: linear-gradient(135deg, #0F5132, #1D7A52) !important;
-        box-shadow: 0 6px 20px rgba(6,40,27,0.18) !important;
-    }
-
-    /* FOOTER upgrade */
-    #public-view footer {
-        background: linear-gradient(160deg, #06281B 0%, #020d07 100%) !important;
-        border-top: 1px solid rgba(110,231,183,0.08) !important;
-    }
-
-    /* PORTAL V7 */
-    #private-portal-view {
-        background: #F5FBF8 !important;
-    }
-
-    #private-portal-view header {
-        background: linear-gradient(90deg, #06281B, #0F5132) !important;
-    }
-
-    #private-portal-view aside {
-        background: linear-gradient(170deg, #06281B 0%, #082218 100%) !important;
-        border-right: 1px solid rgba(110,231,183,0.1) !important;
-    }
-
-    /* Progress bar in portal */
-    #portal-progress-bar {
-        background: linear-gradient(90deg, #6EE7B7, #1D7A52) !important;
-        border-radius: 9999px !important;
-        box-shadow: 0 0 10px rgba(110,231,183,0.4) !important;
-    }
-
-    /* Wizard node buttons in sidebar */
-    #private-portal-view aside button[id^="wiz-node"] {
-        background: rgba(255,255,255,0.05) !important;
-        border: 1px solid rgba(255,255,255,0.08) !important;
-        color: rgba(255,255,255,0.7) !important;
-        border-radius: 12px !important;
-        font-size: 0.72rem !important;
-        padding: 0.75rem 1rem !important;
-        transition: all 0.2s ease !important;
-    }
-
-    #private-portal-view aside button[id^="wiz-node"]:hover,
-    #private-portal-view aside button[id^="wiz-node"].active-node {
-        background: rgba(110,231,183,0.1) !important;
-        border-color: rgba(110,231,183,0.25) !important;
-        color: #6EE7B7 !important;
-    }
-
-    /* PORTAL MAIN content area */
-    #private-portal-view main {
-        background: #F5FBF8 !important;
-    }
-
-    #private-portal-view main > div:nth-child(2) {
-        background: transparent !important;
-    }
-
-    /* Upload document rows */
-    #wiz-screen-7 .p-3.bg-slate-50 {
-        background: #fff !important;
-        border-radius: 14px !important;
-        border: 1px solid rgba(6,40,27,0.09) !important;
-        transition: all 0.2s ease !important;
-    }
-
-    #wiz-screen-7 .p-3.bg-slate-50:hover {
-        border-color: rgba(29,122,82,0.2) !important;
-        background: #F5FBF8 !important;
-    }
-
-    /* FLOATING HOTLINE WIDGET */
-    #floating-hotline-widget {
-        border-radius: 20px !important;
-        box-shadow: 0 12px 40px rgba(6,40,27,0.18) !important;
-        border: 1px solid rgba(6,40,27,0.08) !important;
-    }
-
-    /* AUTH MODAL */
-    #auth-box {
-        border-radius: 32px !important;
-        box-shadow: 0 30px 80px rgba(6,40,27,0.2) !important;
-    }
-
-    /* FORM INPUTS */
-    input:focus, select:focus, textarea:focus {
-        box-shadow: 0 0 0 3px rgba(110,231,183,0.2) !important;
-        border-color: rgba(29,122,82,0.4) !important;
-    }
-
-    /* KICKER BADGES */
-    .v2-kicker {
-        background: rgba(245,251,248,0.95) !important;
-        border-color: rgba(110,231,183,0.25) !important;
-        color: #0F5132 !important;
-    }
-
-    /* Announcement bar */
-    #public-view > div:first-child {
-        background: linear-gradient(90deg, #020d07, #06281B 50%, #020d07) !important;
-    }
-
-    /* Section shells */
-    .v2-section-shell::before {
-        background: radial-gradient(circle at 12% 12%, rgba(110,231,183,0.1), transparent 20rem),
-                    radial-gradient(circle at 88% 72%, rgba(217,119,6,0.07), transparent 18rem) !important;
-    }
-
-    /* Primary buttons */
-    .v2-primary-btn {
-        background: linear-gradient(135deg, #06281B, #1D7A52) !important;
-        border-radius: 12px !important;
-        box-shadow: 0 8px 24px rgba(6,40,27,0.2) !important;
-    }
-
-    /* Ghost buttons */
-    .v2-ghost-btn {
-        border-radius: 12px !important;
-        border-color: rgba(6,40,27,0.12) !important;
-        color: #475569 !important;
-    }
-
-    /* Case index (numbered circle) */
-    .v2-case-index {
-        background: #06281B !important;
-        border-radius: 14px !important;
-    }
-
-    /* Body background */
-    body {
-        background: radial-gradient(circle at 12% 8%, rgba(110,231,183,0.10), transparent 28rem),
-                    radial-gradient(circle at 88% 18%, rgba(217,119,6,0.06), transparent 26rem),
-                    linear-gradient(180deg, #F5FBF8 0%, #f0f9f5 44%, #F8FAFC 100%) !important;
-    }
-
-    /* Mobile responsive for hero */
-    @media (max-width: 1023px) {
-        #hero-section {
-            min-height: 100svh !important;
-            padding-top: 9rem !important;
-            padding-bottom: 3rem !important;
-        }
-        #hero-section h2 {
-            font-size: clamp(2.2rem, 9vw, 3.2rem) !important;
-        }
-    }
-
-    /* Remove the old ::after glow on hero that was mispositioned */
-    #hero-section.old-after::after { display: none; }
-</style>
+    </style>
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col antialiased">
 <!-- ========================================== -->
@@ -1720,108 +1336,57 @@
 </div>
 <!-- HERO INTRO BANNER (Updated matching image_147fee.png) -->
 <section class="bg-gradient-to-r from-[#0b3c26] via-[#042416] to-slate-900 text-white py-16 px-4 md:py-24 relative overflow-hidden" id="hero-section">
-<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center px-4 sm:px-6 lg:px-8">
-<!-- LEFT: Main headline -->
-<div class="lg:col-span-7 space-y-7">
-<span class="inline-flex items-center gap-2 bg-white/6 text-emerald-300 border border-emerald-700/40 text-[11px] font-bold px-3.5 py-1.5 rounded-full uppercase tracking-widest backdrop-blur-sm">
-<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-Nhà Ở Xã Hội · Đợt 3 · Hùng Thắng, Hạ Long
+<div class="absolute inset-0 opacity-15 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:20px_20px]"></div>
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+<div class="lg:col-span-7 space-y-6">
+<span class="inline-flex items-center space-x-2 bg-emerald-900/50 text-emerald-300 border border-emerald-800 text-[11px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span>Hành Trình Mua Nhà Ở Xã Hội Trực Tuyến Đợt 3</span>
 </span>
-<h2 class="font-black text-white">
-BIM Green<br/>
-Residence<br/>
-<span style="color:#6EE7B7; display:block; font-size:55%; font-weight:800; letter-spacing:-0.03em; margin-top:0.5rem; line-height:1.3;">
-Nhà ở Xã Hội<br/>Chất Lượng Thương Mại.
-</span>
+<h2 class="text-3xl md:text-5xl font-black tracking-tight leading-tight">
+                        BIM Green Residence <br/>
+<span class="text-amber-400">Nhà Ở Xã Hội - Chất Lượng Thương Mại</span>
 </h2>
-<p class="text-sm text-white/60 leading-relaxed max-w-lg font-medium">
-Kiến tạo không gian sống tiện nghi, trong lành tại trung tâm phường Hùng Thắng, TP. Hạ Long, Quảng Ninh. Tiêu chuẩn thương mại — mức giá xã hội.
-</p>
-<div class="flex flex-wrap gap-3 pt-1">
-<button class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-sm px-6 py-4 transition shadow-lg hover:shadow-amber-500/25 flex items-center gap-2" onclick="openAuthModal('signup')" style="border-radius:9999px;">
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
+                        Kiến tạo không gian sống tiện nghi, trong lành tại trung tâm phường Hùng Thắng, TP. Hạ Long, Quảng Ninh. Lấy cảm hứng tiêu chuẩn sống từ dự án kiểu mẫu Hope Residences - Phúc Đồng, mang lại môi trường sống chất lượng cao nhất cho gia đình bạn.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-2">
+<button class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs md:text-sm px-6 py-4 rounded-xl transition shadow-lg hover:shadow-amber-500/20 flex items-center space-x-2" onclick="openAuthModal('signup')">
 <i class="fa-solid fa-file-import"></i>
-Đăng ký ngay
+<span>Bắt Đầu Đăng Ký Mua Ngay</span>
 </button>
-<button class="text-white font-bold text-sm px-6 py-4 transition flex items-center gap-2" onclick="scrollToSection('blueprint-section')" style="border-radius:9999px; border:1px solid rgba(255,255,255,0.18); background:rgba(255,255,255,0.06); backdrop-filter:blur(8px);">
-Xem mặt bằng <i class="fa-solid fa-arrow-right text-xs"></i>
-</button>
-</div>
-<!-- Scroll hint -->
-<div class="flex items-center gap-2 text-white/35 text-xs font-semibold pt-2">
-<span style="display:block;width:1.5rem;height:1px;background:rgba(255,255,255,0.25);border-radius:9999px;"></span>
-Cuộn xuống để khám phá
+<button class="bg-[#0b3c26] hover:bg-[#072418] text-white border border-emerald-800 hover:border-emerald-600 font-extrabold text-xs md:text-sm px-6 py-4 rounded-xl transition" onclick="scrollToSection('blueprint-section')">
+                            Xem chi tiết mặt bằng căn hộ
+                        </button>
 </div>
 </div>
-<!-- RIGHT: Floating Dashboard -->
+<!-- Countdown Side Card (image_147fee.png) -->
 <div class="lg:col-span-5">
-<div class="p-6 rounded-3xl relative" style="background:rgba(255,255,255,0.06);backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4);border:1px solid rgba(110,231,183,0.2);box-shadow:0 48px 120px rgba(6,40,27,0.35),inset 0 1px 0 rgba(255,255,255,0.08);">
-<div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(110,231,183,0.5),transparent);border-radius:9999px 9999px 0 0;"></div>
-<!-- Dashboard title -->
-<div class="flex items-center justify-between mb-5">
-<span style="font-size:0.62rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.45);">DASHBOARD · ĐỢT 3</span>
-<span style="display:flex;align-items:center;gap:0.4rem;font-size:0.65rem;font-weight:700;color:#6EE7B7;background:rgba(110,231,183,0.1);border:1px solid rgba(110,231,183,0.2);padding:0.3rem 0.7rem;border-radius:9999px;">
-<span style="width:6px;height:6px;border-radius:9999px;background:#6EE7B7;animation:pulse 2s infinite;"></span>
-Đang nhận hồ sơ
-</span>
-</div>
-<!-- Stats -->
-<div style="display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1.25rem;">
-<div onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.borderColor='rgba(110,231,183,0.1)'" onmouseover="this.style.background='rgba(110,231,183,0.07)';this.style.borderColor='rgba(110,231,183,0.25)'" style="padding:1.1rem 1.25rem;border-radius:16px;background:rgba(255,255,255,0.05);border:1px solid rgba(110,231,183,0.1);display:flex;align-items:center;justify-content:space-between;transition:all 0.2s ease;">
-<div>
-<div style="font-family:'Inter',sans-serif;font-size:2rem;font-weight:900;letter-spacing:-0.04em;line-height:1;color:#6EE7B7;">95%</div>
-<div style="font-size:0.65rem;color:rgba(255,255,255,0.5);font-weight:600;margin-top:0.2rem;text-transform:uppercase;letter-spacing:0.05em;">Hồ sơ hợp lệ</div>
-</div>
-<div style="width:2.5rem;height:2.5rem;border-radius:12px;background:rgba(110,231,183,0.1);display:flex;align-items:center;justify-content:center;font-size:1rem;color:#6EE7B7;">
-<i class="fa-solid fa-circle-check"></i>
-</div>
-</div>
-<div onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.borderColor='rgba(110,231,183,0.1)'" onmouseover="this.style.background='rgba(110,231,183,0.07)';this.style.borderColor='rgba(110,231,183,0.25)'" style="padding:1.1rem 1.25rem;border-radius:16px;background:rgba(255,255,255,0.05);border:1px solid rgba(110,231,183,0.1);display:flex;align-items:center;justify-content:space-between;transition:all 0.2s ease;">
-<div>
-<div style="font-family:'Inter',sans-serif;font-size:2rem;font-weight:900;letter-spacing:-0.04em;line-height:1;color:#6EE7B7;">15 <span style="font-size:1rem;font-weight:700;">ngày</span></div>
-<div style="font-size:0.65rem;color:rgba(255,255,255,0.5);font-weight:600;margin-top:0.2rem;text-transform:uppercase;letter-spacing:0.05em;">Thời gian xử lý trung bình</div>
-</div>
-<div style="width:2.5rem;height:2.5rem;border-radius:12px;background:rgba(110,231,183,0.1);display:flex;align-items:center;justify-content:center;font-size:1rem;color:#6EE7B7;">
-<i class="fa-solid fa-clock"></i>
-</div>
-</div>
-<div onmouseout="this.style.background='rgba(255,255,255,0.05)';this.style.borderColor='rgba(110,231,183,0.1)'" onmouseover="this.style.background='rgba(110,231,183,0.07)';this.style.borderColor='rgba(110,231,183,0.25)'" style="padding:1.1rem 1.25rem;border-radius:16px;background:rgba(255,255,255,0.05);border:1px solid rgba(110,231,183,0.1);display:flex;align-items:center;justify-content:space-between;transition:all 0.2s ease;">
-<div>
-<div style="font-family:'Inter',sans-serif;font-size:2rem;font-weight:900;letter-spacing:-0.04em;line-height:1;color:#6EE7B7;">5.321</div>
-<div style="font-size:0.65rem;color:rgba(255,255,255,0.5);font-weight:600;margin-top:0.2rem;text-transform:uppercase;letter-spacing:0.05em;">Khách hàng đã đăng ký</div>
-</div>
-<div style="width:2.5rem;height:2.5rem;border-radius:12px;background:rgba(110,231,183,0.1);display:flex;align-items:center;justify-content:center;font-size:1rem;color:#6EE7B7;">
-<i class="fa-solid fa-users"></i>
-</div>
-</div>
-</div>
-<!-- Countdown timer -->
-<div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:1.1rem;">
-<div style="font-size:0.62rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.4);margin-bottom:0.75rem;display:flex;align-items:center;gap:0.4rem;">
-<i class="fa-solid fa-hourglass-half" style="color:#d97706;"></i> Hạn nộp hồ sơ đợt 3 còn lại
-</div>
+<div class="bg-white/10 backdrop-blur-md p-6 rounded-3xl border border-white/10 shadow-2xl relative">
+<h3 class="font-extrabold text-amber-400 text-xs uppercase tracking-wider mb-4"><i class="fa-solid fa-hourglass-half mr-2"></i> HẠN NỘP HỒ SƠ ĐỢT 3 CÒN LẠI</h3>
+<!-- Countdown Timer -->
 <div class="grid grid-cols-4 gap-2 text-center">
-<div style="background:rgba(6,40,27,0.5);padding:0.6rem 0.4rem;border-radius:14px;border:1px solid rgba(110,231,183,0.1);">
-<span id="hero-cd-days" style="font-size:1.5rem;font-weight:900;color:#fff;display:block;font-family:'Inter',monospace;letter-spacing:-0.04em;">15</span>
-<span style="font-size:0.55rem;color:rgba(255,255,255,0.4);text-transform:uppercase;font-weight:700;">Ngày</span>
+<div class="bg-slate-950/50 p-2.5 rounded-xl border border-emerald-900">
+<span class="text-2xl font-black text-white block font-mono">15</span>
+<span class="text-[9px] text-slate-400 uppercase">Ngày</span>
 </div>
-<div style="background:rgba(6,40,27,0.5);padding:0.6rem 0.4rem;border-radius:14px;border:1px solid rgba(110,231,183,0.1);">
-<span id="hero-cd-hours" style="font-size:1.5rem;font-weight:900;color:#fff;display:block;font-family:'Inter',monospace;letter-spacing:-0.04em;">11</span>
-<span style="font-size:0.55rem;color:rgba(255,255,255,0.4);text-transform:uppercase;font-weight:700;">Giờ</span>
+<div class="bg-slate-950/50 p-2.5 rounded-xl border border-emerald-900">
+<span class="text-2xl font-black text-white block font-mono">11</span>
+<span class="text-[9px] text-slate-400 uppercase">Giờ</span>
 </div>
-<div style="background:rgba(6,40,27,0.5);padding:0.6rem 0.4rem;border-radius:14px;border:1px solid rgba(110,231,183,0.1);">
-<span id="hero-cd-mins" style="font-size:1.5rem;font-weight:900;color:#fff;display:block;font-family:'Inter',monospace;letter-spacing:-0.04em;">42</span>
-<span style="font-size:0.55rem;color:rgba(255,255,255,0.4);text-transform:uppercase;font-weight:700;">Phút</span>
+<div class="bg-slate-950/50 p-2.5 rounded-xl border border-emerald-900">
+<span class="text-2xl font-black text-white block font-mono">42</span>
+<span class="text-[9px] text-slate-400 uppercase">Phút</span>
 </div>
-<div style="background:rgba(6,40,27,0.5);padding:0.6rem 0.4rem;border-radius:14px;border:1px solid rgba(110,231,183,0.1);">
-<span id="hero-cd-secs" style="font-size:1.5rem;font-weight:900;color:#fff;display:block;font-family:'Inter',monospace;letter-spacing:-0.04em;">18</span>
-<span style="font-size:0.55rem;color:rgba(255,255,255,0.4);text-transform:uppercase;font-weight:700;">Giây</span>
+<div class="bg-slate-950/50 p-2.5 rounded-xl border border-emerald-900">
+<span class="text-2xl font-black text-white block font-mono">18</span>
+<span class="text-[9px] text-slate-400 uppercase">Giây</span>
 </div>
 </div>
+<div class="mt-4 pt-4 border-t border-white/10 text-xs text-slate-300 space-y-1.5">
+<div class="flex justify-between"><span>Đã nộp số hóa:</span> <strong class="text-white">1,504 hồ sơ</strong></div>
+<div class="flex justify-between"><span>Trạng thái Chủ đầu tư:</span> <strong class="text-emerald-400">Đang nhận hồ sơ</strong></div>
 </div>
-<!-- CTA in dashboard -->
-<button onclick="openAuthModal('signup')" onmouseout="this.style.transform='';this.style.boxShadow='0 8px 28px rgba(6,40,27,0.25)'" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 14px 36px rgba(6,40,27,0.3)'" style="width:100%;margin-top:1.25rem;background:linear-gradient(135deg,#0F5132,#1D7A52);color:#fff;font-weight:800;font-size:0.8rem;padding:0.9rem;border-radius:14px;border:none;cursor:pointer;box-shadow:0 8px 28px rgba(6,40,27,0.25);transition:all 0.2s ease;letter-spacing:-0.01em;">
-Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
-</button>
 </div>
 </div>
 </div>
