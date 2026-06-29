@@ -133,7 +133,7 @@
         }
         @media (max-width:640px){
             #public-view>div:first-child{font-size:.64rem!important;padding:.45rem .7rem!important}#public-view>div:first-child .max-w-7xl{gap:.4rem!important}
-            #project-overview{padding-top:3.25rem!important}.v2-section-shell{padding-top:3.5rem!important;padding-bottom:3.5rem!important}.v2-stat-card::after{width:5rem;height:5rem}.v2-num-unit{font-size:1.45rem!important}.v2-range-line{font-size:1.5rem!important}.v2-flow{grid-template-columns:1fr!important}.v2-flow-card{min-height:auto!important}.v2-kicker{font-size:.62rem!important;max-width:calc(100vw - 2rem);white-space:normal;text-align:center}.v2-soft-card{border-radius:1.5rem!important}.v2-feature-list{grid-template-columns:1fr!important}.v2-swipe-card{min-height:300px;border-radius:1.75rem}.v2-case-title{font-size:1.12rem}.sidebar-scroll{max-height:360px!important}table{min-width:720px}#bell-notifications-panel{right:-7rem;width:min(20rem,calc(100vw - 2rem))}
+            #project-overview{padding-top:3.25rem!important}.v2-section-shell{padding-top:3.5rem!important;padding-bottom:3.5rem!important}.v2-stat-card::after{width:5rem;height:5rem}.v2-num-unit{font-size:1.45rem!important}.v2-range-line{font-size:1.5rem!important}.v2-flow{grid-template-columns:1fr!important}.v2-flow-card{min-height:auto!important}.v2-kicker{font-size:.62rem!important;max-width:calc(100vw - 2rem);white-space:normal;text-align:center}.v2-soft-card{border-radius:1.5rem!important}.v2-feature-list{grid-template-columns:1fr!important}.v2-swipe-card{min-height:300px;border-radius:1.75rem}.v2-case-title{font-size:1.12rem}.sidebar-scroll{max-height:360px!important}table{min-width:720px}#bell-notifications-panel{right:-7rem;width:min(20rem,calc(100vw - 2rem));z-index:999999!important;position:absolute!important;}
         }
 
     
@@ -1311,8 +1311,8 @@
             #private-portal-view main > div:first-child{min-height:auto!important;padding:1.12rem 1rem!important;}
             #private-portal-view main > div:nth-child(2){min-height:auto!important;padding:1rem!important;}
             #private-portal-view [id^="wiz-screen-"]{min-height:auto!important;padding-bottom:.25rem!important;}
-            #wiz-screen-4{display:flex;flex-direction:column;gap:.65rem!important;}
-            #wiz-screen-4:not(.hidden){min-height:auto!important;}
+            [id^="wiz-screen-"].hidden{display:none!important;}#wiz-screen-4:not(.hidden){display:flex!important;flex-direction:column;gap:.65rem!important;}
+            #wiz-screen-4:not(.hidden){min-height:auto!important;}#wiz-screen-5:not(.hidden),#wiz-screen-6:not(.hidden),#wiz-screen-7:not(.hidden),#wiz-screen-8:not(.hidden),#wiz-screen-9:not(.hidden),#wiz-screen-10:not(.hidden),#wiz-screen-11:not(.hidden){display:block!important;}
             #wiz-screen-4 .bim-v73-wiz-actions,#wiz-screen-4 .flex.justify-end{margin-top:.3rem!important;padding-top:.6rem!important;}
             #wiz-screen-4 button{min-height:46px!important;}
             #wiz-screen-4 .grid{gap:.65rem!important;}
@@ -1375,7 +1375,7 @@
             #wiz-screen-6 table.bim-v73-doc-table,#wiz-screen-8 table.bim-v73-status-table{min-width:0!important;border:0!important;background:transparent!important;}
             #wiz-screen-6 table.bim-v73-doc-table thead,#wiz-screen-8 table.bim-v73-status-table thead{display:none!important;}
             #wiz-screen-6 table.bim-v73-doc-table tr,#wiz-screen-8 table.bim-v73-status-table tr{position:relative!important;margin-bottom:.78rem!important;padding:.86rem!important;border:1px solid rgba(11,60,38,.11)!important;border-radius:1.15rem!important;background:linear-gradient(145deg,#ffffff,#f8fffb)!important;box-shadow:0 10px 26px rgba(11,60,38,.06)!important;overflow:hidden!important;}
-            /* wiz-screen-7 upload-card — handled by v075 patch */
+            /* wiz-screen-7 upload-card — now replaced by .bim-v7-upload-row; old rule removed */
             #wiz-screen-6 table.bim-v73-doc-table td,#wiz-screen-8 table.bim-v73-status-table td{border:0!important;padding:.28rem 0!important;}
             #wiz-screen-6 table.bim-v73-doc-table td:first-child{position:absolute!important;top:.85rem!important;left:.85rem!important;width:2rem!important;height:2rem!important;display:grid!important;place-items:center!important;border-radius:.72rem!important;background:#ecfdf5!important;color:#0b3c26!important;font-weight:950!important;}
             #wiz-screen-6 table.bim-v73-doc-table td:nth-child(2){padding-left:2.65rem!important;min-height:2.15rem!important;font-size:.78rem!important;line-height:1.46!important;font-weight:650!important;color:#334155!important;}
@@ -1434,61 +1434,89 @@
             #wiz-screen-5 .max-h-48 { max-height: 7.5rem !important; }
         }
 
-        /* === FIX 3: Tab 7 - upload cards, styled like Tab 6 (all screen sizes) === */
-        #wiz-screen-7 .bim-v73-upload-card {
-            background: linear-gradient(145deg, #ffffff, #f8fffb) !important;
-            border: 1px solid rgba(11,60,38,.11) !important;
-            border-radius: 1.15rem !important;
-            box-shadow: 0 8px 20px rgba(11,60,38,.06) !important;
-            padding: .8rem 1rem !important;
-            flex-direction: row !important;
-            align-items: center !important;
-            gap: .75rem !important;
-            transition: all .2s ease !important;
-            /* Override any stacked flex-col from Tailwind sm: breakpoint */
-            display: flex !important;
+        /* === FIX 3: Tab 7 - new .bim-v7-upload-row card style matching Tab 6 === */
+        .bim-v7-upload-row {
+            background: linear-gradient(145deg, #ffffff, #f8fffb);
+            border: 1px solid rgba(11,60,38,.1);
+            border-radius: 1.15rem;
+            padding: .85rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: .6rem;
+            transition: all .18s ease;
+            box-shadow: 0 6px 16px rgba(11,60,38,.05);
         }
-        #wiz-screen-7 .bim-v73-upload-card:hover {
-            box-shadow: 0 12px 26px rgba(11,60,38,.1) !important;
-            border-color: rgba(16,185,129,.2) !important;
-            transform: translateY(-1px) !important;
+        .bim-v7-upload-row:hover {
+            border-color: rgba(16,185,129,.22);
+            box-shadow: 0 10px 24px rgba(11,60,38,.09);
+            transform: translateY(-1px);
         }
-        /* Left info block */
-        #wiz-screen-7 .bim-v73-upload-card > .flex.items-center.space-x-3 {
-            flex: 1 1 auto !important;
-            min-width: 0 !important;
-            width: auto !important;
+        /* Top row: number badge + name/note */
+        .bim-v7-upload-top {
+            display: flex;
+            align-items: flex-start;
+            gap: .65rem;
         }
-        /* Number badge */
-        #wiz-screen-7 .bim-v73-upload-card span.p-2.bg-emerald-50 {
-            width: 2rem !important; height: 2rem !important;
-            padding: 0 !important;
-            display: inline-flex !important;
-            align-items: center !important; justify-content: center !important;
-            border-radius: .72rem !important;
-            font-size: .7rem !important;
-            flex-shrink: 0 !important;
+        .bim-v7-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 2rem; height: 2rem;
+            background: #ecfdf5;
+            color: #0b3c26;
+            border-radius: .65rem;
+            font-size: .68rem;
+            font-weight: 900;
+            flex-shrink: 0;
         }
-        /* Right controls block */
-        #wiz-screen-7 .bim-v73-upload-card > .flex.items-center.space-x-3.w-full.sm\\:w-1\\/3 {
-            width: auto !important;
-            flex-shrink: 0 !important;
+        .bim-v7-info {
+            flex: 1;
+            min-width: 0;
         }
-        /* Upload label button */
-        #wiz-screen-7 .bim-v73-upload-card label[for] {
-            background: linear-gradient(135deg, #0b3c26, #0f6b43) !important;
-            border-radius: .65rem !important;
-            padding: .42rem .85rem !important;
-            font-size: .68rem !important;
-            box-shadow: 0 6px 14px rgba(11,60,38,.18) !important;
-            white-space: nowrap !important;
+        .bim-v7-info strong {
+            display: block;
+            font-size: .75rem;
+            font-weight: 750;
+            color: #1e293b;
+            line-height: 1.4;
         }
-        /* Status badge */
-        #wiz-screen-7 .bim-v73-upload-card span[id^="badge-doc-"] {
-            border-radius: .6rem !important;
-            font-size: .63rem !important;
-            white-space: nowrap !important;
+        .bim-v7-info p {
+            font-size: .67rem;
+            color: #94a3b8;
+            margin-top: .15rem;
+            line-height: 1.45;
         }
+        /* Bottom row: badge + upload button — always below, left-aligned */
+        .bim-v7-upload-actions {
+            display: flex;
+            align-items: center;
+            gap: .55rem;
+            padding-left: 2.65rem; /* align under text, past the number badge */
+        }
+        .bim-v7-upload-actions span[id^="badge-doc-"] {
+            font-size: .65rem;
+            font-weight: 700;
+            color: #94a3b8;
+            background: rgba(226,232,240,.5);
+            padding: .25rem .65rem;
+            border-radius: .5rem;
+            white-space: nowrap;
+        }
+        .bim-v7-upload-actions label {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, #0b3c26, #0f6b43);
+            color: white;
+            font-size: .68rem;
+            font-weight: 700;
+            padding: .38rem .85rem;
+            border-radius: .65rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(11,60,38,.18);
+            transition: opacity .15s;
+            white-space: nowrap;
+        }
+        .bim-v7-upload-actions label:hover { opacity: .88; }
 
         /* === FIX 4: Tab 8 - Simulator box: text on top, 2 buttons full-width below === */
         #wiz-screen-8 .bg-amber-50.border-amber-200 {
@@ -1619,6 +1647,143 @@
             display: inline-flex !important;
             align-items: center !important; justify-content: center !important;
             text-align: center !important; white-space: nowrap !important;
+        }
+
+    
+
+        /* =========================================================
+           BIM LAND V07.8 — Notification Layer + Mobile Step 5/8 Fix
+           ========================================================= */
+
+        /* 1) PC/private portal notifications must float above all workspace cards */
+        #private-portal-view,
+        #private-portal-view header,
+        #private-portal-view header .max-w-7xl,
+        #private-portal-view header .relative{
+            overflow:visible!important;
+        }
+        #private-portal-view header{
+            position:relative!important;
+            z-index:99990!important;
+        }
+        #bell-notifications-panel,
+        #private-portal-view #bell-notifications-panel,
+        #private-portal-view .bim-v078-notification-popover{
+            z-index:999999!important;
+            position:fixed!important;
+            top:5.6rem!important;
+            right:clamp(1rem,3vw,2.25rem)!important;
+            left:auto!important;
+            width:min(22rem,calc(100vw - 2rem))!important;
+            max-width:calc(100vw - 2rem)!important;
+            transform:none!important;
+            isolation:isolate!important;
+            box-shadow:0 30px 90px rgba(6,40,27,.30)!important;
+        }
+        #bell-notifications-panel.hidden{display:none!important;}
+        #bell-notifications-panel:not(.hidden){display:block!important;}
+        #private-portal-view .bim-progress-map-card,
+        #private-portal-view main,
+        #private-portal-view aside,
+        #v7-ai-panel{
+            z-index:1!important;
+        }
+
+        /* 2) Mobile Tab 5: apartment segment must sit below 'Chọn nhóm phù hợp với bạn' block */
+        @media (max-width:767px){
+            #wiz-screen-5 .bim-v078-step5-layout,
+            #wiz-screen-5 > .grid{
+                display:flex!important;
+                flex-direction:column!important;
+                gap:.85rem!important;
+            }
+            #wiz-screen-5 .bim-v078-step5-left{order:1!important;width:100%!important;}
+            #wiz-screen-5 .bim-v078-step5-apartment{order:2!important;width:100%!important;}
+            #wiz-screen-5 .bim-v078-step5-left,
+            #wiz-screen-5 .bim-v078-step5-apartment{
+                border-radius:1.25rem!important;
+                padding:.9rem!important;
+            }
+            #wiz-screen-5 .bim-v078-step5-left select,
+            #wiz-screen-5 .bim-v078-step5-apartment select{
+                width:100%!important;
+            }
+        }
+
+        /* 3) Mobile Tab 8 simulator: content first, both buttons below content */
+        @media (max-width:767px){
+            #wiz-screen-8 .bim-v078-simulator-box,
+            #wiz-screen-8 .bg-amber-50.border-amber-200{
+                display:flex!important;
+                flex-direction:column!important;
+                align-items:stretch!important;
+                justify-content:flex-start!important;
+                gap:.8rem!important;
+                padding:1rem!important;
+                border-radius:1.15rem!important;
+            }
+            #wiz-screen-8 .bim-v078-simulator-box > div:first-child,
+            #wiz-screen-8 .bg-amber-50.border-amber-200 > div:first-child{
+                width:100%!important;
+            }
+            #wiz-screen-8 .bim-v078-simulator-actions,
+            #wiz-screen-8 .bg-amber-50.border-amber-200 .flex.space-x-2{
+                display:grid!important;
+                grid-template-columns:1fr 1fr!important;
+                gap:.58rem!important;
+                width:100%!important;
+                margin-top:.1rem!important;
+                margin-left:0!important;
+                justify-content:stretch!important;
+            }
+            #wiz-screen-8 .bim-v078-simulator-actions button,
+            #wiz-screen-8 .bg-amber-50.border-amber-200 .flex.space-x-2 button{
+                width:100%!important;
+                min-height:42px!important;
+                border-radius:.9rem!important;
+                padding:.62rem .55rem!important;
+                font-size:.68rem!important;
+                line-height:1.15!important;
+                white-space:normal!important;
+                text-align:center!important;
+                margin:0!important;
+            }
+
+            /* Status detail header: date below title row, not in same line */
+            #wiz-screen-8 .bim-v078-status-header,
+            #wiz-screen-8 .bg-white.border.border-slate-200.rounded-3xl .px-5.py-3.border-b{
+                display:flex!important;
+                flex-direction:column!important;
+                align-items:flex-start!important;
+                justify-content:flex-start!important;
+                gap:.28rem!important;
+            }
+            #wiz-screen-8 .bim-v078-status-header h5,
+            #wiz-screen-8 .bg-white.border.border-slate-200.rounded-3xl .px-5.py-3.border-b h5{
+                width:100%!important;
+                line-height:1.35!important;
+            }
+            #wiz-screen-8 .bim-v078-status-date,
+            #wiz-screen-8 .bg-white.border.border-slate-200.rounded-3xl .px-5.py-3.border-b span:not(:first-child){
+                display:block!important;
+                width:100%!important;
+                margin-top:.05rem!important;
+                font-size:.62rem!important;
+                line-height:1.25!important;
+                text-align:left!important;
+                color:#94a3b8!important;
+            }
+        }
+
+        @media (max-width:640px){
+            #bell-notifications-panel,
+            #private-portal-view #bell-notifications-panel,
+            #private-portal-view .bim-v078-notification-popover{
+                top:5rem!important;
+                left:.85rem!important;
+                right:.85rem!important;
+                width:auto!important;
+            }
         }
 
     </style>
@@ -2003,7 +2168,7 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 <span class="absolute top-1 right-1 w-2.5 h-2.5 bg-red-500 rounded-full" id="bell-dot-light"></span>
 </button>
 <!-- Notifications List Dropdown -->
-<div class="hidden absolute right-0 mt-3 w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 text-slate-800 py-2.5 z-50 text-[11px] fade-in" id="bell-notifications-panel">
+<div class="hidden absolute right-0 mt-3 w-80 bg-white rounded-2xl shadow-2xl border border-slate-200 text-slate-800 py-2.5 text-[11px] fade-in bim-v078-notification-popover" id="bell-notifications-panel" style="z-index:999999;position:absolute;">
 <div class="px-4 py-2 border-b border-slate-100 font-extrabold text-[#0b3c26] flex justify-between items-center">
 <span class="uppercase tracking-wide"><i class="fa-solid fa-bell mr-1.5 text-amber-500"></i> Thông Báo Hệ Thống</span>
 <span class="bg-red-100 text-red-700 text-[9px] px-2.5 py-0.5 rounded-full font-bold">MỚI</span>
@@ -2168,7 +2333,7 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 </div>
 <span class="text-xs text-emerald-300 font-mono hidden sm:inline-block"><i class="fa-solid fa-lock-open mr-1"></i> Không gian bảo mật</span>
 </div>
-<div class="p-6 sm:p-8 flex-grow flex flex-col justify-between">
+<div class="p-6 sm:p-8 flex-grow flex flex-col">
 <!-- WIZARD STEP 4: ATTRIBUTION SOURCE -->
 <div class="space-y-5 text-xs" id="wiz-screen-4">
 <p class="text-slate-500 leading-relaxed text-[11px] sm:text-xs">Vui lòng khai báo chính xác kênh biết đến thông tin dự án để phục vụ công tác đối soát hoa hồng đại lý:</p>
@@ -2189,8 +2354,8 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 </select>
 </div>
 </div>
-<div class="flex justify-end pt-6 border-t border-slate-100 bim-v73-wiz-actions">
-<button class="bg-[#0b3c26] hover:bg-[#072418] text-white font-extrabold px-6 py-3 rounded-xl transition shadow flex items-center space-x-1.5 text-[11px] sm:text-xs" onclick="changeWizPanel(5)">
+<div class="flex justify-end pt-4 border-t border-slate-100 bim-v73-wiz-actions">
+<button class="bg-[#0b3c26] hover:bg-[#072418] text-white font-extrabold px-6 py-3 rounded-xl transition shadow flex items-center space-x-1.5" onclick="changeWizPanel(5)">
 <span>Tiếp tục: Chọn nhóm &amp; Căn (Bước 5)</span>
 <i class="fa-solid fa-arrow-right"></i>
 </button>
@@ -2198,10 +2363,11 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 </div>
 <!-- WIZARD STEP 5: GROUPS & ROOM APARTMENT VIEW -->
 <div class="hidden space-y-5 text-xs" id="wiz-screen-5">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<!-- Left: 10 Groups detailed -->
-<div class="space-y-3 bg-slate-50 p-4 rounded-3xl border border-slate-200/60">
-<h4 class="font-extrabold text-[#0b3c26] text-xs border-b pb-1 uppercase">Mô tả 10 Nhóm Đối Tượng Thụ Hưởng (Điều 76)</h4>
+<!-- Row 1: Two panels side by side (desktop) / stacked (mobile) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 bim-v078-step5-layout">
+<!-- Left: 10 Groups reference list ONLY -->
+<div class="space-y-2.5 bg-slate-50 p-4 rounded-3xl border border-slate-200/60 bim-v078-step5-left">
+<h4 class="font-extrabold text-[#0b3c26] text-xs border-b pb-1.5 uppercase">Mô tả 10 Nhóm Đối Tượng Thụ Hưởng (Điều 76)</h4>
 <div class="space-y-2 max-h-48 overflow-y-auto sidebar-scroll pr-1 text-[11px] leading-relaxed text-slate-600">
 <div class="bim-beneficiary-row" data-group-code="K1"><span class="bim-k-pill">K1</span><span class="bim-group-copy">Người có công với cách mạng theo quy định.</span></div>
 <div class="bim-beneficiary-row" data-group-code="K4"><span class="bim-k-pill">K4</span><span class="bim-group-copy">Hộ nghèo, cận nghèo tại khu vực đô thị.</span></div>
@@ -2210,25 +2376,10 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 <div class="bim-beneficiary-row" data-group-code="K8"><span class="bim-k-pill">K8</span><span class="bim-group-copy">Cán bộ, công chức, viên chức Nhà nước.</span></div>
 <div class="bim-beneficiary-row" data-group-code="K10"><span class="bim-k-pill">K10</span><span class="bim-group-copy">Hộ gia đình, cá nhân bị thu hồi đất và phải giải tỏa.</span></div>
 </div>
-<div>
-<label class="block font-bold text-slate-500 mb-1">CHỌN NHÓM PHÙ HỢP VỚI BẠN</label>
-<select class="w-full border border-slate-200 rounded-xl p-2.5 bg-white font-bold text-slate-800" id="wiz-selected-group" onchange="toggleK5SubGroup()">
-<option value="K5">Nhóm K5 - Thu nhập thấp đô thị</option>
-<option value="K1">Nhóm K1 - Người có công</option>
-<option value="K8">Nhóm K8 - Công chức, viên chức</option>
-</select>
-</div>
-<div id="wiz-k5-sub-wrapper">
-<label class="block font-bold text-slate-500 mb-1">PHÂN NHÁNH K5</label>
-<select class="w-full border border-slate-200 rounded-xl p-2.5 bg-white font-bold text-slate-800" id="wiz-selected-subgroup">
-<option value="k5-hdld">Có Hợp đồng lao động &amp; đóng BHXH</option>
-<option value="k5-free">Lao động tự do (Không có BHXH)</option>
-</select>
-</div>
 </div>
 <!-- Right: Unit Size Selection -->
-<div class="space-y-3 bg-slate-50 p-4 rounded-3xl border border-slate-200/60">
-<h4 class="font-extrabold text-[#0b3c26] text-xs border-b pb-1 uppercase">Lựa chọn phân khúc căn hộ mong muốn</h4>
+<div class="space-y-3 bg-slate-50 p-4 rounded-3xl border border-slate-200/60 bim-v078-step5-apartment">
+<h4 class="font-extrabold text-[#0b3c26] text-xs border-b pb-1.5 uppercase">Lựa chọn phân khúc căn hộ mong muốn</h4>
 <div>
 <label class="block font-bold text-slate-500 mb-1">LOẠI DIỆN TÍCH</label>
 <select class="w-full border border-slate-200 rounded-xl p-2.5 bg-white font-bold text-slate-800" id="wiz-selected-room" onchange="updateWizRoomPrice()">
@@ -2241,6 +2392,25 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 <strong class="bim-price-breakdown" id="wiz-room-price-range"><span class="bim-price-line"><span class="bim-price-label">Từ</span><span class="bim-price-value">1.004.400.000đ</span></span><span class="bim-price-line"><span class="bim-price-label">Đến</span><span class="bim-price-value">1.120.000.000đ</span></span><span class="bim-price-note">(Kiểu tháp B8)</span></strong>
 <p class="text-[9px] text-slate-400 leading-normal mt-1">Đã bao gồm thuế GTGT 5% và phí bảo trì 2% theo khung phê duyệt Sở Xây dựng.</p>
 </div>
+</div>
+</div>
+<!-- Row 2: Group selection — always below, full width on mobile -->
+<div class="bg-white border border-slate-200/80 rounded-3xl p-4 space-y-3 shadow-sm">
+<h4 class="font-extrabold text-[#0b3c26] text-xs border-b pb-1.5 uppercase">Chọn nhóm phù hợp với bạn</h4>
+<div>
+<label class="block font-bold text-slate-500 mb-1 text-[10px] uppercase tracking-wider">NHÓM ĐỐI TƯỢNG</label>
+<select class="w-full border border-slate-200 rounded-xl p-2.5 bg-slate-50 font-bold text-slate-800" id="wiz-selected-group" onchange="toggleK5SubGroup()">
+<option value="K5">Nhóm K5 - Thu nhập thấp đô thị</option>
+<option value="K1">Nhóm K1 - Người có công</option>
+<option value="K8">Nhóm K8 - Công chức, viên chức</option>
+</select>
+</div>
+<div id="wiz-k5-sub-wrapper">
+<label class="block font-bold text-slate-500 mb-1 text-[10px] uppercase tracking-wider">PHÂN NHÁNH K5</label>
+<select class="w-full border border-slate-200 rounded-xl p-2.5 bg-slate-50 font-bold text-slate-800" id="wiz-selected-subgroup">
+<option value="k5-hdld">Có Hợp đồng lao động &amp; đóng BHXH</option>
+<option value="k5-free">Lao động tự do (Không có BHXH)</option>
+</select>
 </div>
 </div>
 <div class="flex justify-between pt-6 border-t border-slate-100 bim-v73-wiz-actions">
@@ -2386,189 +2556,69 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 <span class="font-extrabold block text-xs text-emerald-900"><i class="fa-solid fa-circle-info mr-1"></i> TIẾP NHẬN HỒ SƠ SỐ HÓA:</span>
                                 Quý khách vui lòng đăng tải đầy đủ tệp ảnh chụp hoặc tệp scan sắc nét của từng đầu mục hồ sơ tương ứng. Các tệp tin được hệ thống xử lý dữ liệu và mã hóa lưu trữ an toàn, phục vụ công tác rà soát thông tin trực tuyến trước khi đối chứng bản giấy.
                             </div>
-<!-- 12 Upload Checklist Items -->
+<!-- 12 Upload Checklist Items — Tab 6 card style -->
 <div class="bg-white border border-slate-200 rounded-3xl p-5 space-y-3 shadow-sm">
 <span class="text-slate-400 block font-bold text-[10px] uppercase tracking-wider mb-2">DANH MỤC HỒ SƠ</span>
 <div class="space-y-2.5 max-h-[450px] overflow-y-auto pr-1 sidebar-scroll">
 <!-- STT 1 -->
-<div class="p-3 bg-slate-50 rounded-2xl border border-slate-150 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm bim-v73-upload-card">
-<div class="flex items-center space-x-3 w-full sm:w-2/3">
-<span class="p-2 bg-emerald-50 text-emerald-800 rounded-xl font-bold">01</span>
-<div>
-<strong class="text-slate-800 block">Đơn Đăng Ký Mẫu 01 <span class="bim-chip-required">*Bắt buộc</span></strong>
-<p class="text-[10px] text-slate-400">Tệp đã điền tay đầy đủ, ký tên ghi rõ họ tên.</p>
-</div>
-</div>
-<div class="flex items-center space-x-3 w-full sm:w-1/3 justify-end">
-<span class="text-[10px] font-bold text-slate-400 bg-slate-200/50 px-2.5 py-1 rounded-lg" id="badge-doc-m01">Chưa nộp</span>
-<input class="hidden" id="f-doc-m01" onchange="handleSingleUpload('m01')" type="file"/>
-<label class="bg-[#0b3c26] text-white hover:bg-emerald-850 px-3 py-1.5 rounded-lg font-bold transition cursor-pointer text-[10px]" for="f-doc-m01">Tải tệp</label>
-</div>
+<div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">01</span><div class="bim-v7-info"><strong>Đơn Đăng Ký Mẫu 01 <span class="bim-chip-required">*Bắt buộc</span></strong><p>Tệp đã điền tay đầy đủ, ký tên ghi rõ họ tên.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-m01">Chưa nộp</span><input class="hidden" id="f-doc-m01" onchange="handleSingleUpload('m01')" type="file"/><label for="f-doc-m01"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
 </div>
 <!-- STT 2 -->
-<div class="p-3 bg-slate-50 rounded-2xl border border-slate-150 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm bim-v73-upload-card">
-<div class="flex items-center space-x-3 w-full sm:w-2/3">
-<span class="p-2 bg-emerald-50 text-emerald-800 rounded-xl font-bold">02</span>
-<div>
-<strong class="text-slate-800 block">Xác nhận quá trình tham gia Bảo hiểm xã hội <span class="bim-chip-required">*Bắt buộc</span></strong>
-<p class="text-[10px] text-slate-400">Ảnh chụp sổ BHXH hoặc màn hình ứng dụng VssID.</p>
-</div>
-</div>
-<div class="flex items-center space-x-3 w-full sm:w-1/3 justify-end">
-<span class="text-[10px] font-bold text-slate-400 bg-slate-200/50 px-2.5 py-1 rounded-lg" id="badge-doc-bhxh">Chưa nộp</span>
-<input class="hidden" id="f-doc-bhxh" onchange="handleSingleUpload('bhxh')" type="file"/>
-<label class="bg-[#0b3c26] text-white hover:bg-emerald-850 px-3 py-1.5 rounded-lg font-bold transition cursor-pointer text-[10px]" for="f-doc-bhxh">Tải tệp</label>
-</div>
+<div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">02</span><div class="bim-v7-info"><strong>Xác nhận quá trình tham gia Bảo hiểm xã hội <span class="bim-chip-required">*Bắt buộc</span></strong><p>Ảnh chụp sổ BHXH hoặc màn hình ứng dụng VssID.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-bhxh">Chưa nộp</span><input class="hidden" id="f-doc-bhxh" onchange="handleSingleUpload('bhxh')" type="file"/><label for="f-doc-bhxh"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
 </div>
 <!-- STT 3 -->
-<div class="p-3 bg-slate-50 rounded-2xl border border-slate-150 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm bim-v73-upload-card">
-<div class="flex items-center space-x-3 w-full sm:w-2/3">
-<span class="p-2 bg-emerald-50 text-emerald-800 rounded-xl font-bold">03</span>
-<div>
-<strong class="text-slate-800 block">Mẫu 01a: Xác nhận đối tượng chính sách <span class="bim-chip-required">*Bắt buộc</span></strong>
-<p class="text-[10px] text-slate-400">Con dấu mộc đỏ tròn chứng thực của UBND.</p>
-</div>
-</div>
-<div class="flex items-center space-x-3 w-full sm:w-1/3 justify-end">
-<span class="text-[10px] font-bold text-slate-400 bg-slate-200/50 px-2.5 py-1 rounded-lg" id="badge-doc-m01a">Chưa nộp</span>
-<input class="hidden" id="f-doc-m01a" onchange="handleSingleUpload('m01a')" type="file"/>
-<label class="bg-[#0b3c26] text-white hover:bg-emerald-850 px-3 py-1.5 rounded-lg font-bold transition cursor-pointer text-[10px]" for="f-doc-m01a">Tải tệp</label>
-</div>
+<div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">03</span><div class="bim-v7-info"><strong>Mẫu 01a: Xác nhận đối tượng chính sách <span class="bim-chip-required">*Bắt buộc</span></strong><p>Con dấu mộc đỏ tròn chứng thực của UBND.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-m01a">Chưa nộp</span><input class="hidden" id="f-doc-m01a" onchange="handleSingleUpload('m01a')" type="file"/><label for="f-doc-m01a"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
 </div>
 <!-- STT 4 -->
-<div class="p-3 bg-slate-50 rounded-2xl border border-slate-150 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm bim-v73-upload-card">
-<div class="flex items-center space-x-3 w-full sm:w-2/3">
-<span class="p-2 bg-emerald-50 text-emerald-800 rounded-xl font-bold">04</span>
-<div>
-<strong class="text-slate-800 block">Mẫu số 02 hoặc Mẫu 03: Xác nhận điều kiện nhà ở <span class="bim-chip-required">*Bắt buộc</span></strong>
-<p class="text-[10px] text-slate-400">Giấy chứng nhận thực trạng nhà đất hợp quy.</p>
-</div>
-</div>
-<div class="flex items-center space-x-3 w-full sm:w-1/3 justify-end">
-<span class="text-[10px] font-bold text-slate-400 bg-slate-200/50 px-2.5 py-1 rounded-lg" id="badge-doc-m02">Chưa nộp</span>
-<input class="hidden" id="f-doc-m02" onchange="handleSingleUpload('m02')" type="file"/>
-<label class="bg-[#0b3c26] text-white hover:bg-emerald-850 px-3 py-1.5 rounded-lg font-bold transition cursor-pointer text-[10px]" for="f-doc-m02">Tải tệp</label>
-</div>
+<div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">04</span><div class="bim-v7-info"><strong>Mẫu số 02 hoặc Mẫu 03: Xác nhận điều kiện nhà ở <span class="bim-chip-required">*Bắt buộc</span></strong><p>Giấy chứng nhận thực trạng nhà đất hợp quy.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-m02">Chưa nộp</span><input class="hidden" id="f-doc-m02" onchange="handleSingleUpload('m02')" type="file"/><label for="f-doc-m02"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
 </div>
 <!-- STT 5 -->
-<div class="p-3 bg-slate-50 rounded-2xl border border-slate-150 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm bim-v73-upload-card">
-<div class="flex items-center space-x-3 w-full sm:w-2/3">
-<span class="p-2 bg-emerald-50 text-emerald-800 rounded-xl font-bold">05</span>
-<div>
-<strong class="text-slate-800 block">Bảng lương và thu nhập 01 năm liền kề <span class="bim-chip-required">*Bắt buộc</span></strong>
-<p class="text-[10px] text-slate-400">Bảng xác nhận lương do cơ quan/doanh nghiệp đóng mộc.</p>
-</div>
-</div>
-<div class="flex items-center space-x-3 w-full sm:w-1/3 justify-end">
-<span class="text-[10px] font-bold text-slate-400 bg-slate-200/50 px-2.5 py-1 rounded-lg" id="badge-doc-luong">Chưa nộp</span>
-<input class="hidden" id="f-doc-luong" onchange="handleSingleUpload('luong')" type="file"/>
-<label class="bg-[#0b3c26] text-white hover:bg-emerald-850 px-3 py-1.5 rounded-lg font-bold transition cursor-pointer text-[10px]" for="f-doc-luong">Tải tệp</label>
-</div>
+<div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">05</span><div class="bim-v7-info"><strong>Bảng lương và thu nhập 01 năm liền kề <span class="bim-chip-required">*Bắt buộc</span></strong><p>Bảng xác nhận lương do cơ quan/doanh nghiệp đóng mộc.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-luong">Chưa nộp</span><input class="hidden" id="f-doc-luong" onchange="handleSingleUpload('luong')" type="file"/><label for="f-doc-luong"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
 </div>
 <!-- STT 6 -->
-<div class="p-3 bg-slate-50 rounded-2xl border border-slate-150 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm bim-v73-upload-card">
-<div class="flex items-center space-x-3 w-full sm:w-2/3">
-<span class="p-2 bg-emerald-50 text-emerald-800 rounded-xl font-bold">06</span>
-<div>
-<strong class="text-slate-800 block">Quyết định nghỉ thai sản <span class="bim-chip-optional">Nếu có</span></strong>
-<p class="text-[10px] text-slate-400">Dành cho lao động nữ nghỉ chế độ thai sản trong 12 tháng qua.</p>
-</div>
-</div>
-<div class="flex items-center space-x-3 w-full sm:w-1/3 justify-end">
-<span class="text-[10px] font-bold text-slate-400 bg-slate-200/50 px-2.5 py-1 rounded-lg" id="badge-doc-thaisan">Chưa nộp</span>
-<input class="hidden" id="f-doc-thaisan" onchange="handleSingleUpload('thaisan')" type="file"/>
-<label class="bg-[#0b3c26] text-white hover:bg-emerald-850 px-3 py-1.5 rounded-lg font-bold transition cursor-pointer text-[10px]" for="f-doc-thaisan">Tải tệp</label>
-</div>
+<div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">06</span><div class="bim-v7-info"><strong>Quyết định nghỉ thai sản <span class="bim-chip-optional">Nếu có</span></strong><p>Dành cho lao động nữ nghỉ chế độ thai sản trong 12 tháng qua.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-thaisan">Chưa nộp</span><input class="hidden" id="f-doc-thaisan" onchange="handleSingleUpload('thaisan')" type="file"/><label for="f-doc-thaisan"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
 </div>
 <!-- STT 7 -->
-<div class="p-3 bg-slate-50 rounded-2xl border border-slate-150 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm bim-v73-upload-card">
-<div class="flex items-center space-x-3 w-full sm:w-2/3">
-<span class="p-2 bg-emerald-50 text-emerald-800 rounded-xl font-bold">07</span>
-<div>
-<strong class="text-slate-800 block">HĐLĐ &amp; Giấy tờ làm việc Quảng Ninh <span class="bim-chip-required">*Bắt buộc</span></strong>
-<p class="text-[10px] text-slate-400">Hợp đồng lao động hợp lệ và minh chứng khoảng cách.</p>
-</div>
-</div>
-<div class="flex items-center space-x-3 w-full sm:w-1/3 justify-end">
-<span class="text-[10px] font-bold text-slate-400 bg-slate-200/50 px-2.5 py-1 rounded-lg" id="badge-doc-qd04">Chưa nộp</span>
-<input class="hidden" id="f-doc-qd04" onchange="handleSingleUpload('qd04')" type="file"/>
-<label class="bg-[#0b3c26] text-white hover:bg-emerald-850 px-3 py-1.5 rounded-lg font-bold transition cursor-pointer text-[10px]" for="f-doc-qd04">Tải tệp</label>
-</div>
+<div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">07</span><div class="bim-v7-info"><strong>HĐLĐ &amp; Giấy tờ làm việc Quảng Ninh <span class="bim-chip-required">*Bắt buộc</span></strong><p>Hợp đồng lao động hợp lệ và minh chứng khoảng cách.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-qd04">Chưa nộp</span><input class="hidden" id="f-doc-qd04" onchange="handleSingleUpload('qd04')" type="file"/><label for="f-doc-qd04"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
 </div>
 <!-- STT 8 -->
-<div class="p-3 bg-slate-50 rounded-2xl border border-slate-150 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm bim-v73-upload-card">
-<div class="flex items-center space-x-3 w-full sm:w-2/3">
-<span class="p-2 bg-emerald-50 text-emerald-800 rounded-xl font-bold">08</span>
-<div>
-<strong class="text-slate-800 block">Xác nhận độc thân nuôi con nhỏ <span class="bim-chip-optional">Nếu có</span></strong>
-<p class="text-[10px] text-slate-400">Quyết định ly hôn / giấy chứng tử và nuôi con.</p>
-</div>
-</div>
-<div class="flex items-center space-x-3 w-full sm:w-1/3 justify-end">
-<span class="text-[10px] font-bold text-slate-400 bg-slate-200/50 px-2.5 py-1 rounded-lg" id="badge-doc-docthancon">Chưa nộp</span>
-<input class="hidden" id="f-doc-docthancon" onchange="handleSingleUpload('docthancon')" type="file"/>
-<label class="bg-[#0b3c26] text-white hover:bg-emerald-850 px-3 py-1.5 rounded-lg font-bold transition cursor-pointer text-[10px]" for="f-doc-docthancon">Tải tệp</label>
-</div>
+<div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">08</span><div class="bim-v7-info"><strong>Xác nhận độc thân nuôi con nhỏ <span class="bim-chip-optional">Nếu có</span></strong><p>Quyết định ly hôn / giấy chứng tử và nuôi con.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-docthancon">Chưa nộp</span><input class="hidden" id="f-doc-docthancon" onchange="handleSingleUpload('docthancon')" type="file"/><label for="f-doc-docthancon"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
 </div>
 <!-- STT 9 -->
-<div class="p-3 bg-slate-50 rounded-2xl border border-slate-150 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm bim-v73-upload-card">
-<div class="flex items-center space-x-3 w-full sm:w-2/3">
-<span class="p-2 bg-emerald-50 text-emerald-800 rounded-xl font-bold">09</span>
-<div>
-<strong class="text-slate-800 block">Xác nhận thông tin cư trú <span class="bim-chip-required">*Bắt buộc</span></strong>
-<p class="text-[10px] text-slate-400">Ảnh chụp bản CT07 cư trú hoặc dữ liệu định danh.</p>
-</div>
-</div>
-<div class="flex items-center space-x-3 w-full sm:w-1/3 justify-end">
-<span class="text-[10px] font-bold text-slate-400 bg-slate-200/50 px-2.5 py-1 rounded-lg" id="badge-doc-cutru">Chưa nộp</span>
-<input class="hidden" id="f-doc-cutru" onchange="handleSingleUpload('cutru')" type="file"/>
-<label class="bg-[#0b3c26] text-white hover:bg-emerald-850 px-3 py-1.5 rounded-lg font-bold transition cursor-pointer text-[10px]" for="f-doc-cutru">Tải tệp</label>
-</div>
+<div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">09</span><div class="bim-v7-info"><strong>Xác nhận thông tin cư trú <span class="bim-chip-required">*Bắt buộc</span></strong><p>Ảnh chụp bản CT07 cư trú hoặc dữ liệu định danh.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-cutru">Chưa nộp</span><input class="hidden" id="f-doc-cutru" onchange="handleSingleUpload('cutru')" type="file"/><label for="f-doc-cutru"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
 </div>
 <!-- STT 10 -->
-<div class="p-3 bg-slate-50 rounded-2xl border border-slate-150 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm bim-v73-upload-card">
-<div class="flex items-center space-x-3 w-full sm:w-2/3">
-<span class="p-2 bg-emerald-50 text-emerald-800 rounded-xl font-bold">10</span>
-<div>
-<strong class="text-slate-800 block">Bản sao CCCD / Khai sinh thành viên <span class="bim-chip-required">*Bắt buộc</span></strong>
-<p class="text-[10px] text-slate-400">CCCD 2 mặt của các thành viên đăng ký cùng hộ.</p>
-</div>
-</div>
-<div class="flex items-center space-x-3 w-full sm:w-1/3 justify-end">
-<span class="text-[10px] font-bold text-slate-400 bg-slate-200/50 px-2.5 py-1 rounded-lg" id="badge-doc-thanhvien">Chưa nộp</span>
-<input class="hidden" id="f-doc-thanhvien" onchange="handleSingleUpload('thanhvien')" type="file"/>
-<label class="bg-[#0b3c26] text-white hover:bg-emerald-850 px-3 py-1.5 rounded-lg font-bold transition cursor-pointer text-[10px]" for="f-doc-thanhvien">Tải tệp</label>
-</div>
+<div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">10</span><div class="bim-v7-info"><strong>Bản sao CCCD / Khai sinh thành viên <span class="bim-chip-required">*Bắt buộc</span></strong><p>CCCD 2 mặt của các thành viên đăng ký cùng hộ.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-thanhvien">Chưa nộp</span><input class="hidden" id="f-doc-thanhvien" onchange="handleSingleUpload('thanhvien')" type="file"/><label for="f-doc-thanhvien"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
 </div>
 <!-- STT 11 -->
-<div class="p-3 bg-slate-50 rounded-2xl border border-slate-150 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm bim-v73-upload-card">
-<div class="flex items-center space-x-3 w-full sm:w-2/3">
-<span class="p-2 bg-emerald-50 text-emerald-800 rounded-xl font-bold">11</span>
-<div>
-<strong class="text-slate-800 block">Đăng ký kết hôn / Tình trạng độc thân <span class="bim-chip-required">*Bắt buộc</span></strong>
-<p class="text-[10px] text-slate-400">Chứng nhận kết hôn mộc đỏ hoặc giấy xác nhận độc thân.</p>
-</div>
-</div>
-<div class="flex items-center space-x-3 w-full sm:w-1/3 justify-end">
-<span class="text-[10px] font-bold text-slate-400 bg-slate-200/50 px-2.5 py-1 rounded-lg" id="badge-doc-honnhan">Chưa nộp</span>
-<input class="hidden" id="f-doc-honnhan" onchange="handleSingleUpload('honnhan')" type="file"/>
-<label class="bg-[#0b3c26] text-white hover:bg-emerald-850 px-3 py-1.5 rounded-lg font-bold transition cursor-pointer text-[10px]" for="f-doc-honnhan">Tải tệp</label>
-</div>
+<div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">11</span><div class="bim-v7-info"><strong>Đăng ký kết hôn / Tình trạng độc thân <span class="bim-chip-required">*Bắt buộc</span></strong><p>Chứng nhận kết hôn mộc đỏ hoặc giấy xác nhận độc thân.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-honnhan">Chưa nộp</span><input class="hidden" id="f-doc-honnhan" onchange="handleSingleUpload('honnhan')" type="file"/><label for="f-doc-honnhan"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
 </div>
 <!-- STT 12 -->
-<div class="p-3 bg-slate-50 rounded-2xl border border-slate-150 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm bim-v73-upload-card">
-<div class="flex items-center space-x-3 w-full sm:w-2/3">
-<span class="p-2 bg-emerald-50 text-emerald-800 rounded-xl font-bold">12</span>
-<div>
-<strong class="text-slate-800 block">Xác nhận đối tượng khuyết tật <span class="bim-chip-optional">Nếu có</span></strong>
-<p class="text-[10px] text-slate-400">Giấy tờ chứng thực do cơ sở y tế ban hành.</p>
-</div>
-</div>
-<div class="flex items-center space-x-3 w-full sm:w-1/3 justify-end">
-<span class="text-[10px] font-bold text-slate-400 bg-slate-200/50 px-2.5 py-1 rounded-lg" id="badge-doc-khuyettat">Chưa nộp</span>
-<input class="hidden" id="f-doc-khuyettat" onchange="handleSingleUpload('khuyettat')" type="file"/>
-<label class="bg-[#0b3c26] text-white hover:bg-emerald-850 px-3 py-1.5 rounded-lg font-bold transition cursor-pointer text-[10px]" for="f-doc-khuyettat">Tải tệp</label>
-</div>
+<div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">12</span><div class="bim-v7-info"><strong>Xác nhận đối tượng khuyết tật <span class="bim-chip-optional">Nếu có</span></strong><p>Giấy tờ chứng thực do cơ sở y tế ban hành.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-khuyettat">Chưa nộp</span><input class="hidden" id="f-doc-khuyettat" onchange="handleSingleUpload('khuyettat')" type="file"/><label for="f-doc-khuyettat"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
 </div>
 </div>
 </div>
@@ -2583,12 +2633,12 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 <!-- WIZARD STEP 8: DETAILED STATUS TRACKING & VERIFICATION PROCESS (CĐT DUYỆT BẢN MỀM) -->
 <div class="hidden space-y-5 text-xs fade-in" id="wiz-screen-8">
 <!-- Simulation State Controller (Helper for Reviewing states easily) -->
-<div class="bg-amber-50 border border-amber-200 p-3.5 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-inner">
+<div class="bg-amber-50 border border-amber-200 p-3.5 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-inner bim-v078-simulator-box">
 <div>
 <span class="font-extrabold text-amber-900 block text-[10px] uppercase tracking-wider"><i class="fa-solid fa-vials mr-1"></i> BỘ GIẢ LẬP TRẠNG THÁI KIỂM TRA HỒ SƠ MỀM:</span>
 <p class="text-[9px] text-slate-500 leading-normal">Bấm chọn nút dưới đây để thay đổi và kiểm tra giao diện hiển thị giữa trường hợp đạt chuẩn và sai sót của bản mềm scan.</p>
 </div>
-<div class="flex space-x-2">
+<div class="flex space-x-2 bim-v078-simulator-actions">
 <button class="bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-4 py-2 rounded-xl transition text-[10px] shadow-sm" id="btn-sim-suff" onclick="setSimulationState('sufficient')">ĐỦ HỒ SƠ MỀM (Đạt)</button>
 <button class="bg-amber-600 hover:bg-amber-700 text-white font-bold px-4 py-2 rounded-xl transition text-[10px] shadow-sm" id="btn-sim-inc" onclick="setSimulationState('incomplete')">THIẾU/SAI HỒ SƠ MỀM</button>
 </div>
@@ -2648,9 +2698,9 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 </div>
 <!-- DETAILED CHECKLIST TABLE FOR TRACKING -->
 <div class="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm">
-<div class="px-5 py-3 border-b bg-slate-50 flex justify-between items-center">
+<div class="px-5 py-3 border-b bg-slate-50 flex justify-between items-center bim-v078-status-header">
 <h5 class="font-bold text-[#0b3c26] text-xs uppercase"><i class="fa-solid fa-clipboard-list mr-1"></i> Trạng thái kiểm duyệt chi tiết từng đầu mục bản mềm:</h5>
-<span class="text-[9px] text-slate-400 font-bold uppercase">Ngày cập nhật: Hôm nay</span>
+<span class="text-[9px] text-slate-400 font-bold uppercase bim-v078-status-date">Ngày cập nhật: Hôm nay</span>
 </div>
 <div class="overflow-x-auto">
 <table class="w-full text-left border-collapse text-[11px] bim-v73-status-table">
@@ -4277,9 +4327,7 @@ Dẫn tôi đến bước nộp tài liệu
     tick();
 })();
 </script>
-
-
-    <script>
+<script>
         /* BIM LAND V07.3 — robust wizard panel override */
         (function(){
             const meta = {
@@ -4336,6 +4384,5 @@ Dẫn tôi đến bước nộp tài liệu
             else setTitle(4);
         })();
     </script>
-
 </body>
 </html>
