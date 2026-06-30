@@ -891,9 +891,9 @@
         #wiz-screen-6 .bim-doc-placeholder{width:118px!important;min-height:34px!important;display:block!important;visibility:hidden!important;}
 
         /* Step 7 status chips */
-        #wiz-screen-7 .bim-chip-required,#wiz-screen-7 .bim-chip-optional{display:inline-flex!important;align-items:center!important;padding:.22rem .52rem!important;border-radius:999px!important;font-size:.62rem!important;line-height:1!important;font-weight:950!important;white-space:nowrap!important;}
-        #wiz-screen-7 .bim-chip-required{background:#fef2f2!important;color:#b91c1c!important;border:1px solid rgba(239,68,68,.18)!important;}
-        #wiz-screen-7 .bim-chip-optional{background:#ecfdf5!important;color:#047857!important;border:1px solid rgba(16,185,129,.20)!important;}
+        #wiz-screen-6 .bim-chip-required,#wiz-screen-6 .bim-chip-optional,#wiz-screen-7 .bim-chip-required,#wiz-screen-7 .bim-chip-optional{display:inline-flex!important;align-items:center!important;padding:.22rem .52rem!important;border-radius:999px!important;font-size:.62rem!important;line-height:1!important;font-weight:950!important;white-space:nowrap!important;margin-left:.35rem!important;vertical-align:middle!important;}
+        #wiz-screen-6 .bim-chip-required,#wiz-screen-7 .bim-chip-required{background:#fef2f2!important;color:#b91c1c!important;border:1px solid rgba(239,68,68,.18)!important;}
+        #wiz-screen-6 .bim-chip-optional,#wiz-screen-7 .bim-chip-optional{background:#ecfdf5!important;color:#047857!important;border:1px solid rgba(16,185,129,.20)!important;}
 
         /* Step 10: always show simulation buttons/boxes */
         #wiz-screen-10 .opacity-0,#wiz-screen-10 .invisible,#wiz-screen-10 [class*="opacity-0"],#wiz-screen-10 [class*="invisible"],#wiz-screen-10 [class*="group-hover:opacity"],#wiz-screen-10 [class*="group-hover:visible"],#wiz-screen-10 [class*="group-hover:block"]{opacity:1!important;visibility:visible!important;display:block!important;transform:none!important;max-height:none!important;pointer-events:auto!important;}
@@ -1786,6 +1786,90 @@
             }
         }
 
+    
+
+        /* =========================================================
+           BRD 1.2 UPDATE — 10 bước số hóa + private portal refinements
+           ========================================================= */
+        .brd-hidden, #wiz-node-7, #wiz-node-11, #wiz-screen-7, #wiz-screen-11, #map-stage-5{display:none!important;}
+        #private-portal-view .bim-progress-map-card .grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;}
+        .bim-brd12-user-menu-wrap{position:relative!important;}
+        .bim-brd12-user-menu-wrap:hover .bim-brd12-user-dropdown{display:block!important;}
+        @media(max-width:1023px){#private-portal-view .bim-progress-map-card .grid{grid-auto-columns:minmax(220px,76vw)!important;grid-template-columns:none!important;}}
+        .bim-brd12-upload-merged .bim-v7-upload-row{margin-bottom:.65rem;}
+        #bell-notifications-panel{z-index:999999!important;}
+        #auth-unlocked-section:not(.brd-otp-ok){opacity:.55;pointer-events:none;}
+        input[readonly]{background:#f8fafc!important;color:#475569!important;cursor:not-allowed!important;}
+
+        /* =========================================================
+           MOBILE SWIPE CAROUSELS — Tab 6 (10 nhóm) & Tab 7 (Tải mẫu / Upload scan)
+           Desktop layout giữ nguyên hoàn toàn; chỉ áp dụng dưới 767px.
+           ========================================================= */
+        @media (max-width:767px){
+            /* ---- Tab 6 (wiz-screen-5): Mô tả 10 nhóm đối tượng — mỗi trang xếp dọc 3 nhóm, vuốt trái/phải sang trang khác ---- */
+            #wiz-screen-5 .sidebar-scroll.max-h-48{
+                display:grid!important;grid-auto-flow:column!important;
+                grid-template-rows:repeat(3,minmax(4.6rem,auto))!important;
+                grid-auto-columns:100%!important;
+                overflow-x:auto!important;overflow-y:hidden!important;max-height:none!important;
+                scroll-snap-type:x mandatory!important;-webkit-overflow-scrolling:touch!important;
+                row-gap:.5rem!important;column-gap:.7rem!important;
+                padding:.15rem .15rem .7rem!important;
+            }
+            #wiz-screen-5 .sidebar-scroll.max-h-48::-webkit-scrollbar{height:5px!important;}
+            #wiz-screen-5 .sidebar-scroll.max-h-48 .bim-beneficiary-row{
+                scroll-snap-align:start!important;min-width:0!important;width:100%!important;
+                margin-bottom:0!important;
+            }
+            #wiz-screen-5 .sidebar-scroll.max-h-48 .bim-group-copy{
+                font-size:.7rem!important;line-height:1.4!important;
+            }
+
+            /* ---- Tab 7 (wiz-screen-6): Box "Tải mẫu / Sổ tay" — mỗi trang xếp dọc 5 mục, vuốt trái/phải sang trang khác ---- */
+            #wiz-screen-6 table.bim-v73-doc-table tbody{
+                display:grid!important;grid-auto-flow:column!important;
+                grid-template-rows:repeat(5,minmax(3.4rem,auto))!important;
+                grid-auto-columns:100%!important;
+                overflow-x:auto!important;overflow-y:hidden!important;
+                scroll-snap-type:x mandatory!important;-webkit-overflow-scrolling:touch!important;
+                row-gap:.55rem!important;column-gap:.7rem!important;
+                padding:.1rem .1rem .7rem!important;
+            }
+            #wiz-screen-6 table.bim-v73-doc-table tbody::-webkit-scrollbar{height:5px!important;}
+            #wiz-screen-6 table.bim-v73-doc-table tbody tr{
+                scroll-snap-align:start!important;min-width:0!important;width:100%!important;
+                margin-bottom:0!important;
+            }
+
+            /* ---- Tab 7 (wiz-screen-6): Box "Upload bản Scan số hóa" — mỗi trang xếp dọc 5 mục, vuốt trái/phải sang trang khác ---- */
+            #wiz-screen-6 .bim-v7-upload-scroll{
+                display:grid!important;grid-auto-flow:column!important;
+                grid-template-rows:repeat(5,minmax(5.6rem,auto))!important;
+                grid-auto-columns:100%!important;
+                overflow-x:auto!important;overflow-y:hidden!important;
+                scroll-snap-type:x mandatory!important;-webkit-overflow-scrolling:touch!important;
+                row-gap:.55rem!important;column-gap:.7rem!important;
+                padding:.1rem .1rem .7rem!important;
+            }
+            #wiz-screen-6 .bim-v7-upload-scroll::-webkit-scrollbar{height:5px!important;}
+            #wiz-screen-6 .bim-v7-upload-scroll .bim-v7-upload-row{
+                scroll-snap-align:start!important;min-width:0!important;width:100%!important;
+                margin-bottom:0!important;
+                display:flex!important;flex-direction:row!important;align-items:flex-start!important;justify-content:space-between!important;gap:.6rem!important;flex-wrap:wrap!important;
+            }
+            #wiz-screen-6 .bim-v7-upload-scroll .bim-v7-upload-top{flex:1 1 auto!important;min-width:0!important;}
+            #wiz-screen-6 .bim-v7-upload-scroll .bim-v7-info strong{font-size:.72rem!important;}
+            #wiz-screen-6 .bim-v7-upload-scroll .bim-v7-info p{display:-webkit-box!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical!important;overflow:hidden!important;}
+            #wiz-screen-6 .bim-v7-upload-scroll .bim-v7-upload-actions{padding-left:0!important;flex-direction:row!important;align-items:center!important;gap:.4rem!important;flex-shrink:0!important;}
+            #wiz-screen-6 .bim-v7-upload-scroll .bim-v7-upload-actions span[id^="badge-doc-"]{text-align:center!important;}
+
+            /* ---- Chú thích "*Bắt buộc" / "Nếu có" trên mobile — đảm bảo xuống dòng gọn trong box nhỏ, không vỡ layout ---- */
+            #wiz-screen-6 .bim-chip-required,#wiz-screen-6 .bim-chip-optional{
+                margin-left:.35rem!important;margin-top:0!important;display:inline-flex!important;
+            }
+            #wiz-screen-6 .bim-v7-upload-scroll .bim-v7-info strong{display:inline!important;}
+        }
+
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col antialiased">
@@ -2099,20 +2183,20 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 <section class="v2-section-shell max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-10">
 <div class="text-center max-w-4xl mx-auto space-y-4">
 <span class="v2-kicker mx-auto"><i class="fa-solid fa-route"></i> Minh bạch &amp; Tự động hóa</span>
-<h2 class="v2-title text-3xl md:text-5xl">QUY TRÌNH 11 BƯỚC<br class="hidden sm:block"/> SỞ HỮU CĂN HỘ</h2>
+<h2 class="v2-title text-3xl md:text-5xl">QUY TRÌNH 10 BƯỚC<br class="hidden sm:block"/> SỞ HỮU CĂN HỘ</h2>
 </div>
 <div aria-label="Quy trình 11 bước sở hữu căn hộ" class="v2-flow">
 <article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">01</span><span class="v2-flow-chip">Bước 01</span></div><h5 class="font-extrabold">Nhận Biết Dự Án</h5><p>Tiếp nhận thông tin chính thống từ Chủ đầu tư và đại lý ủy quyền.</p></article>
-<article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">02</span><span class="v2-flow-chip">Bước 02</span></div><h5 class="font-extrabold">Nội Dung Dự Án</h5><p>Tìm hiểu thông số quy hoạch chi tiết 1/500 và tiện ích chuẩn thương mại.</p></article>
-<article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">03</span><span class="v2-flow-chip">Bước 03</span></div><h5 class="font-extrabold">Khảo Sát Nhu Cầu</h5><p>Tham gia bộ câu hỏi 3 mục xác nhận để kiểm tra điều kiện sơ bộ.</p></article>
-<article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">04</span><span class="v2-flow-chip">Bước 04</span></div><h5 class="font-extrabold">Đăng Ký Tài Khoản</h5><p>Tạo tài khoản cá nhân, xác minh mã OTP và mật khẩu bảo mật.</p></article>
-<article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">05</span><span class="v2-flow-chip">Bước 05</span></div><h5 class="font-extrabold">Chọn Nhóm &amp; Loại Căn</h5><p>Xác nhận nhóm thụ hưởng (K1-K10) và nguyện vọng phân khúc phòng.</p></article>
-<article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">06</span><span class="v2-flow-chip">Bước 06</span></div><h5 class="font-extrabold">Khai Đơn Mẫu</h5><p>Tải file mẫu chuẩn của Sở Xây dựng và Sổ tay hướng dẫn.</p></article>
-<article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">07</span><span class="v2-flow-chip">Bước 07</span></div><h5 class="font-extrabold">Upload Bản Scan Số Hóa</h5><p>Bắt buộc tải ảnh scan biểu mẫu lên hệ thống số của Chủ đầu tư.</p></article>
-<article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">08</span><span class="v2-flow-chip">Bước 08</span></div><h5 class="font-extrabold">Đối Chứng Bản Cứng</h5><p>Sau khi online ĐẠT, đặt lịch hẹn mang bản giấy tới văn phòng CĐT.</p></article>
-<article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">09</span><span class="v2-flow-chip">Bước 09</span></div><h5 class="font-extrabold">Thẩm Duyệt Liên Sở</h5><p>Sở Xây dựng và Văn phòng Đăng ký đất đai thẩm định chéo trùng lặp.</p></article>
-<article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">10</span><span class="v2-flow-chip">Bước 10</span></div><h5 class="font-extrabold">Bốc Thăm Số Phòng</h5><p>Tổ chức quay bốc thăm số phòng ngẫu nhiên công khai, minh bạch.</p></article>
-<article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">11</span><span class="v2-flow-chip">Bước 11</span></div><h5 class="font-extrabold">Ký Thế HĐMB</h5><p>Hoàn tất ký số HĐMB điện tử với Chủ đầu tư.</p></article>
+<article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">02</span><span class="v2-flow-chip">Bước 02</span></div><h5 class="font-extrabold">Nội Dung Dự Án</h5><p>Tìm hiểu quy hoạch, tiện ích, mặt bằng căn hộ và thông số pháp lý dự án.</p></article>
+<article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">03</span><span class="v2-flow-chip">Bước 03</span></div><h5 class="font-extrabold">Khảo Sát Nhu Cầu</h5><p>Thực hiện khảo sát điều kiện mua NOXH theo 3 mục xác nhận.</p></article>
+<article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">04</span><span class="v2-flow-chip">Bước 04</span></div><h5 class="font-extrabold">Đăng Ký Tài Khoản</h5><p>Tạo tài khoản cá nhân, xác minh OTP và đồng ý điều khoản sử dụng.</p></article>
+<article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">05</span><span class="v2-flow-chip">Bước 05</span></div><h5 class="font-extrabold">Kênh Biết Đến Thông Tin Dự Án</h5><p>Ghi nhận kênh tiếp cận thông tin để phục vụ đối soát đại lý.</p></article>
+<article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">06</span><span class="v2-flow-chip">Bước 06</span></div><h5 class="font-extrabold">Đăng Ký Nhóm Đối Tượng &amp; Loại Căn</h5><p>Xác nhận nhóm thụ hưởng K1-K10 và lựa chọn phân khúc căn hộ mong muốn.</p></article>
+<article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">07</span><span class="v2-flow-chip">Bước 07</span></div><h5 class="font-extrabold">Khai Đơn Mẫu &amp; Upload Bản Scan</h5><p>Tải mẫu, chuẩn bị hồ sơ và tải lên bản scan số hóa theo danh mục yêu cầu.</p></article>
+<article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">08</span><span class="v2-flow-chip">Bước 08</span></div><h5 class="font-extrabold">Trạng Thái Hồ Sơ Mềm</h5><p>Theo dõi kết quả CĐT duyệt bản mềm scan và xử lý bổ sung nếu có.</p></article>
+<article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">09</span><span class="v2-flow-chip">Bước 09</span></div><h5 class="font-extrabold">Đối Chứng Bản Cứng</h5><p>Đặt lịch hẹn mang hồ sơ giấy bản gốc tới văn phòng tiếp nhận đối chứng.</p></article>
+<article class="v2-flow-card"><div class="v2-flow-step"><span class="v2-flow-num">10</span><span class="v2-flow-chip">Bước 10</span></div><h5 class="font-extrabold">Thẩm Duyệt Liên Sở</h5><p>Hồ sơ chuyển sang bước thẩm định liên sở để xét duyệt suất mua NOXH.</p></article>
+<article class="v2-flow-card hidden" style="display:none!important"><div class="v2-flow-step"><span class="v2-flow-num">11</span><span class="v2-flow-chip">Bước 11</span></div><h5 class="font-extrabold">Ký Thế HĐMB</h5><p>Hoàn tất Hoàn tất hồ sơ điện tử với Chủ đầu tư.</p></article>
 </div>
 <div class="v2-swipe-hint"><i class="fa-solid fa-arrow-left-long"></i><span></span><i class="fa-solid fa-arrow-right-long"></i></div>
 </section>
@@ -2122,7 +2206,7 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 <div class="text-center space-y-4"><span class="v2-kicker mx-auto"><i class="fa-solid fa-shield-halved"></i> XÁC THỰC PHÁP LÝ TRỰC TIẾP</span><h2 class="v2-title text-3xl md:text-5xl">XÁC NHẬN ĐIỀU KIỆN<br class="hidden sm:block"/> ĐĂNG KÝ MUA NOXH</h2><div aria-label="Tiến trình khảo sát điều kiện" class="v2-survey-nav"><span class="v2-survey-dot active" id="v2-dot-1"></span><span class="v2-survey-dot" id="v2-dot-2"></span><span class="v2-survey-dot" id="v2-dot-3"></span></div></div>
 <div class="v2-survey-card text-xs text-slate-700 leading-relaxed">
 <div class="v2-survey-step active space-y-5" id="v2-survey-step-1"><div class="space-y-2 relative z-10"><span class="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-emerald-100 text-[#0b3c26] font-black">I</span><h4 class="font-black text-slate-900 text-lg md:text-2xl tracking-tight">MỤC 1: XÁC NHẬN ĐIỀU KIỆN THỰC TRẠNG NHÀ Ở</h4><p class="text-slate-500 italic text-sm">Tôi và người đồng đứng tên (vợ/chồng nếu có) xác nhận thực trạng nhà đất đáp ứng các tiêu chí sau:</p></div><div class="v2-choice-grid grid grid-cols-1 sm:grid-cols-2 gap-3 relative z-10"><label class="flex items-start space-x-3 cursor-pointer p-4 rounded-2xl border hover:bg-slate-50"><input checked="" class="text-emerald-700 rounded mt-0.5 focus:ring-emerald-500" id="chk-home-none" type="checkbox"/><span class="text-[11px] leading-relaxed"><strong class="text-slate-800 font-bold block mb-0.5">Chưa có nhà ở:</strong><span class="text-slate-500">Chưa từng đứng tên sở hữu bất kỳ nhà ở, đất ở nào trên địa bàn tỉnh Quảng Ninh.</span></span></label><label class="flex items-start space-x-3 cursor-pointer p-4 rounded-2xl border hover:bg-slate-50"><input checked="" class="text-emerald-700 rounded mt-0.5 focus:ring-emerald-500" id="chk-home-narrow" type="checkbox"/><span class="text-[11px] leading-relaxed"><strong class="text-slate-800 font-bold block mb-0.5">Diện tích quá chật hẹp:</strong><span class="text-slate-500">Đã có nhà ở thuộc sở hữu hợp pháp nhưng diện tích bình quân đầu người trong hộ gia đình hiện tại dưới 15m² sàn/người.</span></span></label><label class="flex items-start space-x-3 cursor-pointer p-4 rounded-2xl border hover:bg-slate-50"><input checked="" class="text-emerald-700 rounded mt-0.5 focus:ring-emerald-500" id="chk-home-dist" type="checkbox"/><span class="text-[11px] leading-relaxed"><strong class="text-slate-800 font-bold block mb-0.5">Khoảng cách đặc thù:</strong><span class="text-slate-500">Vị trí nhà ở cách xa nơi làm việc hiện tại từ 30 km trở lên (hoặc 10 km đối với LLVT).</span></span></label><label class="flex items-start space-x-3 cursor-pointer p-4 rounded-2xl border hover:bg-slate-50"><input checked="" class="text-emerald-700 rounded mt-0.5 focus:ring-emerald-500" id="chk-home-aid" type="checkbox"/><span class="text-[11px] leading-relaxed"><strong class="text-slate-800 font-bold block mb-0.5">Chưa nhận hỗ trợ:</strong><span class="text-slate-500">Chưa từng được Nhà nước giao đất ở, bồi thường bằng nhà ở hoặc chưa từng mua/thuê mua NOXH.</span></span></label></div><div class="flex justify-end pt-2 relative z-10"><button class="v2-primary-btn" onclick="v2SurveyNext(2)" type="button">Tiếp tục sang Mục II <i class="fa-solid fa-arrow-right ml-1.5"></i></button></div></div>
-<div class="v2-survey-step space-y-5" id="v2-survey-step-2"><div class="space-y-2 relative z-10"><span class="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-emerald-100 text-[#0b3c26] font-black">II</span><h4 class="font-black text-slate-900 text-lg md:text-2xl tracking-tight">MỤC 2: XÁC NHẬN ĐIỀU KIỆN THU NHẬP</h4><p class="text-slate-500 italic text-sm">Tôi và người đồng đứng tên (vợ/chồng nếu có) xác nhận mức thu nhập thực nhận hàng tháng thuộc diện sau:</p></div><div class="v2-choice-list space-y-3 relative z-10"><label class="flex items-start space-x-3 cursor-pointer p-4 rounded-2xl border hover:bg-slate-50"><input checked="" class="text-emerald-700 mt-1 focus:ring-emerald-500" name="rad-income" type="radio" value="low"/><div class="text-[11px] leading-relaxed"><strong class="text-slate-800 font-bold block mb-0.5">Đối tượng Thu Nhập Thấp (Hợp Lệ):</strong><span class="text-slate-500">Cá nhân độc thân thu nhập ≤ 15 triệu/tháng HOẶC Hộ gia đình (vợ chồng) tổng thu nhập cộng lại ≤ 30 triệu/tháng.</span></div></label><label class="flex items-start space-x-3 cursor-pointer p-4 rounded-2xl border hover:bg-slate-50"><input class="text-emerald-700 mt-1 focus:ring-emerald-500" name="rad-income" type="radio" value="high"/><div class="text-[11px] leading-relaxed"><strong class="text-slate-800 font-bold block mb-0.5">Đối tượng Thu Nhập Chịu Thuế Cao (Không hợp lệ):</strong><span class="text-slate-500">Vượt quá định mức quy định thu nhập thấp đô thị nêu trên.</span></div></label></div><div class="flex justify-between pt-2 relative z-10"><button class="v2-ghost-btn" onclick="v2SurveyNext(1)" type="button"><i class="fa-solid fa-arrow-left mr-1.5"></i> Quay lại Mục I</button><button class="v2-primary-btn" onclick="v2SurveyNext(3)" type="button">Tiếp tục sang Mục III <i class="fa-solid fa-arrow-right ml-1.5"></i></button></div></div>
+<div class="v2-survey-step space-y-5" id="v2-survey-step-2"><div class="space-y-2 relative z-10"><span class="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-emerald-100 text-[#0b3c26] font-black">II</span><h4 class="font-black text-slate-900 text-lg md:text-2xl tracking-tight">MỤC 2: XÁC NHẬN ĐIỀU KIỆN THU NHẬP</h4><p class="text-slate-500 italic text-sm">Tôi và người đồng đứng tên (vợ/chồng nếu có) xác nhận mức thu nhập thực nhận hàng tháng thuộc diện sau:</p></div><div class="v2-choice-list space-y-3 relative z-10"><label class="flex items-start space-x-3 cursor-pointer p-4 rounded-2xl border hover:bg-slate-50"><input checked="" class="text-emerald-700 mt-1 focus:ring-emerald-500" name="rad-income" type="radio" value="single25"/><div class="text-[11px] leading-relaxed"><strong class="text-slate-800 font-bold block mb-0.5">Độc thân, thu nhập &lt; 25 triệu/tháng</strong><span class="text-slate-500">Áp dụng cho người đứng đơn độc thân, tổng thu nhập thực nhận hàng tháng dưới 25 triệu đồng.</span></div></label><label class="flex items-start space-x-3 cursor-pointer p-4 rounded-2xl border hover:bg-slate-50"><input class="text-emerald-700 mt-1 focus:ring-emerald-500" name="rad-income" type="radio" value="singlechild35"/><div class="text-[11px] leading-relaxed"><strong class="text-slate-800 font-bold block mb-0.5">Độc thân nuôi con nhỏ, thu nhập &lt; 35 triệu/tháng</strong><span class="text-slate-500">Áp dụng cho người đứng đơn độc thân đang trực tiếp nuôi con nhỏ.</span></div></label><label class="flex items-start space-x-3 cursor-pointer p-4 rounded-2xl border hover:bg-slate-50"><input class="text-emerald-700 mt-1 focus:ring-emerald-500" name="rad-income" type="radio" value="married50"/><div class="text-[11px] leading-relaxed"><strong class="text-slate-800 font-bold block mb-0.5">Đã kết hôn, tổng thu nhập 2 vợ chồng &lt; 50 triệu/tháng</strong><span class="text-slate-500">Áp dụng cho hộ gia đình có vợ/chồng cùng kê khai thu nhập.</span></div></label><label class="flex items-start space-x-3 cursor-pointer p-4 rounded-2xl border hover:bg-slate-50"><input class="text-emerald-700 mt-1 focus:ring-emerald-500" name="rad-income" type="radio" value="high"/><div class="text-[11px] leading-relaxed"><strong class="text-slate-800 font-bold block mb-0.5">Thu nhập cao hơn mức nêu trên</strong><span class="text-slate-500">Kết quả đánh giá: Không thỏa mãn điều kiện thu nhập.</span></div></label></div><div class="flex justify-between pt-2 relative z-10"><button class="v2-ghost-btn" onclick="v2SurveyNext(1)" type="button"><i class="fa-solid fa-arrow-left mr-1.5"></i> Quay lại Mục I</button><button class="v2-primary-btn" onclick="v2SurveyNext(3)" type="button">Tiếp tục sang Mục III <i class="fa-solid fa-arrow-right ml-1.5"></i></button></div></div>
 <div class="v2-survey-step space-y-5" id="v2-survey-step-3"><div class="space-y-2 relative z-10"><span class="inline-flex items-center justify-center w-10 h-10 rounded-2xl bg-emerald-100 text-[#0b3c26] font-black">III</span><h4 class="font-black text-slate-900 text-lg md:text-2xl tracking-tight">MỤC 3: XÁC NHẬN KHẢ NĂNG TÀI CHÍNH</h4><p class="text-slate-500 italic text-sm">Tôi cam kết đảm bảo năng lực tài chính để thực hiện phương án mua nhà:</p></div><div class="v2-choice-grid grid grid-cols-1 sm:grid-cols-2 gap-3 relative z-10"><label class="flex items-start space-x-3 cursor-pointer p-4 rounded-2xl border hover:bg-slate-50"><input checked="" class="text-emerald-700 rounded mt-0.5 focus:ring-emerald-500" id="chk-fin-own" type="checkbox"/><span class="text-[11px] leading-relaxed"><strong class="text-slate-800 font-bold block mb-0.5">Vốn tự có tối thiểu:</strong><span class="text-slate-500">Có sẵn dòng tiền tích lũy tương đương tối thiểu 20% giá trị căn hộ để đóng tiền đợt đầu.</span></span></label><label class="flex items-start space-x-3 cursor-pointer p-4 rounded-2xl border hover:bg-slate-50"><input checked="" class="text-emerald-700 rounded mt-0.5 focus:ring-emerald-500" id="chk-fin-stable" type="checkbox"/><span class="text-[11px] leading-relaxed"><strong class="text-slate-800 font-bold block mb-0.5">Năng lực trả góp:</strong><span class="text-slate-500">Có nguồn thu nhập ổn định lâu dài để chứng minh điều kiện vay vốn và trả góp ngân hàng.</span></span></label></div><div class="relative z-10 bg-amber-50 border border-amber-100 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px]" id="survey-result-placeholder"><span class="text-slate-600 font-semibold leading-relaxed">Vui lòng hoàn tất 3 mục xác nhận để hệ thống phân tích điều kiện.</span><button class="bg-[#d97706] hover:bg-amber-700 text-white font-extrabold px-6 py-2.5 rounded-xl transition text-[11px] shadow whitespace-nowrap" onclick="runSurveyCheck()">Chạy Đánh Giá Điều Kiện</button></div><div class="flex justify-start pt-2 relative z-10"><button class="v2-ghost-btn" onclick="v2SurveyNext(2)" type="button"><i class="fa-solid fa-arrow-left mr-1.5"></i> Quay lại Mục II</button></div></div>
 </div>
 </div>
@@ -2172,7 +2256,7 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 <div class="px-4 py-2 border-b border-slate-100 font-extrabold text-[#0b3c26] flex justify-between items-center">
 <span class="uppercase tracking-wide"><i class="fa-solid fa-bell mr-1.5 text-amber-500"></i> Thông Báo Hệ Thống</span>
 <span class="bg-red-100 text-red-700 text-[9px] px-2.5 py-0.5 rounded-full font-bold">MỚI</span>
-</div>
+<button class="bim-brd12-mark-read text-[9px] px-2 py-1 rounded-full bg-emerald-50 text-emerald-800 font-bold ml-2" onclick="markAllNotificationsRead(event)">Đánh dấu tất cả đã đọc</button></div>
 <div class="divide-y divide-slate-100 max-h-64 overflow-y-auto sidebar-scroll">
 <div class="p-3 hover:bg-slate-50 transition cursor-pointer" onclick="changeWizPanel(8)">
 <strong class="text-slate-800 block text-xs">Cập nhật kiểm tra hồ sơ!</strong>
@@ -2181,7 +2265,7 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 </div>
 <div class="p-3 hover:bg-slate-50 transition cursor-pointer">
 <strong class="text-slate-800 block text-xs">Kênh liên kết hoạt động</strong>
-<p class="text-slate-500 leading-normal mt-0.5">Nhận thông báo tự động đồng bộ qua SMS, Zalo và Email đã được kích hoạt thành công.</p>
+<p class="text-slate-500 leading-normal mt-0.5">Nhận thông báo tự động đồng bộ qua SMS, điện thoại và Email đã được kích hoạt thành công.</p>
 <span class="block text-[9px] text-slate-400 mt-1.5">Mới đăng ký</span>
 </div>
 </div>
@@ -2191,9 +2275,9 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 <div class="w-8 h-8 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-xs">
 <i class="fa-solid fa-user-shield"></i>
 </div>
-<div class="text-[11px] leading-none">
+<div class="text-[11px] leading-none bim-brd12-user-menu-wrap">
 <strong class="text-white font-bold uppercase" id="portal-user-display">Nguyễn Văn Khách</strong>
-</div>
+<div class="bim-brd12-user-dropdown hidden absolute right-0 top-full mt-2 w-56 bg-white rounded-2xl border border-slate-200 shadow-2xl p-2 text-[11px] text-slate-700 z-[999999]"><button class="w-full text-left px-3 py-2 rounded-xl hover:bg-emerald-50 font-bold" onclick='event.preventDefault(); alert("Tính năng đang được cấu hình.")'> Đổi mật khẩu</button><button class="w-full text-left px-3 py-2 rounded-xl hover:bg-emerald-50 font-bold" onclick='event.preventDefault(); alert("Tính năng đang được cấu hình.")'> Cập nhật thông tin tài khoản</button></div></div>
 </div>
 <button class="bg-red-900/50 hover:bg-red-800/80 text-white font-extrabold text-[10px] uppercase px-4 py-2.5 rounded-xl border border-red-800 transition tracking-wider" onclick="logoutSession()">
                         Thoát Cổng Số
@@ -2232,23 +2316,23 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 <div class="p-4 rounded-2xl border transition duration-300 flex items-start gap-3 bg-slate-50 border-slate-200" id="map-stage-1">
 <span class="w-7 h-7 rounded-full bg-slate-300 text-white flex items-center justify-center text-xs font-bold font-mono" id="map-icon-1">1</span>
 <div>
-<strong class="text-[11px] text-slate-800 block uppercase font-black">Khởi tạo &amp; Số hóa</strong>
-<span class="text-[10px] text-slate-400 font-semibold block mt-0.5" id="map-lbl-1">Đang nộp hồ sơ trực tuyến</span>
+<strong class="text-[11px] text-slate-800 block uppercase font-black">KHỞI TẠO &amp; SỐ HÓA</strong>
+<span class="text-[10px] text-slate-400 font-semibold block mt-0.5" id="map-lbl-1">Bước 5, 6, 7</span>
 </div>
 </div>
 <!-- Stage 2 -->
 <div class="p-4 rounded-2xl border transition duration-300 flex items-start gap-3 bg-slate-50 border-slate-200" id="map-stage-2">
 <span class="w-7 h-7 rounded-full bg-slate-300 text-white flex items-center justify-center text-xs font-bold font-mono" id="map-icon-2">2</span>
 <div>
-<strong class="text-[11px] text-slate-800 block uppercase font-black">CĐT Duyệt Bản Mềm</strong>
-<span class="text-[10px] text-slate-400 font-semibold block mt-0.5" id="map-lbl-2">Kiểm duyệt hồ sơ scan</span>
+<strong class="text-[11px] text-slate-800 block uppercase font-black">CĐT DUYỆT BẢN MỀM</strong>
+<span class="text-[10px] text-slate-400 font-semibold block mt-0.5" id="map-lbl-2">Bước 8</span>
 </div>
 </div>
 <!-- Stage 3 -->
 <div class="p-4 rounded-2xl border transition duration-300 flex items-start gap-3 bg-slate-50 border-slate-200" id="map-stage-3">
 <span class="w-7 h-7 rounded-full bg-slate-300 text-white flex items-center justify-center text-xs font-bold font-mono" id="map-icon-3">3</span>
 <div>
-<strong class="text-[11px] text-slate-800 block uppercase font-black">CĐT Duyệt Bản Cứng</strong>
+<strong class="text-[11px] text-slate-800 block uppercase font-black">CĐT DUYỆT BẢN CỨNG</strong>
 <span class="text-[10px] text-slate-400 font-semibold block mt-0.5" id="map-lbl-3">Đăng ký lịch đối chứng</span>
 </div>
 </div>
@@ -2256,15 +2340,15 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 <div class="p-4 rounded-2xl border transition duration-300 flex items-start gap-3 bg-slate-50 border-slate-200" id="map-stage-4">
 <span class="w-7 h-7 rounded-full bg-slate-300 text-white flex items-center justify-center text-xs font-bold font-mono" id="map-icon-4">4</span>
 <div>
-<strong class="text-[11px] text-slate-800 block uppercase font-black">Thẩm duyệt suất mua</strong>
-<span class="text-[10px] text-slate-400 font-semibold block mt-0.5" id="map-lbl-4">Thẩm định suất mua NOXH</span>
+<strong class="text-[11px] text-slate-800 block uppercase font-black">THẨM DUYỆT SUẤT MUA</strong>
+<span class="text-[10px] text-slate-400 font-semibold block mt-0.5" id="map-lbl-4">Bước 10</span>
 </div>
 </div>
 <!-- Stage 5 -->
-<div class="p-4 rounded-2xl border transition duration-300 flex items-start gap-3 bg-slate-50 border-slate-200" id="map-stage-5">
+<div class="p-4 rounded-2xl border transition duration-300 flex items-start gap-3 bg-slate-50 border-slate-200 hidden" id="map-stage-5" style="display:none!important">
 <span class="w-7 h-7 rounded-full bg-slate-300 text-white flex items-center justify-center text-xs font-bold font-mono" id="map-icon-5">5</span>
 <div>
-<strong class="text-[11px] text-slate-800 block uppercase font-black">Bốc thăm &amp; Ký HĐ</strong>
+<strong class="text-[11px] text-slate-800 block uppercase font-black">Hoàn tất &amp; Ký HĐ</strong>
 <span class="text-[10px] text-slate-400 font-semibold block mt-0.5" id="map-lbl-5">Đạt mua &amp; Ký kết HĐMB</span>
 </div>
 </div>
@@ -2313,14 +2397,14 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
                             </h4>
 </div>
 <div class="space-y-2 text-xs bim-v73-digital-nav">
-<button class="w-full text-left p-3 rounded-2xl border transition duration-150 block font-semibold text-slate-600 bg-white border-slate-100 hover:border-[#0b3c26]/30" id="wiz-node-4" onclick="changeWizPanel(4)">4. Kênh biết đến thông tin</button>
-<button class="w-full text-left p-3 rounded-2xl border transition duration-150 block font-semibold text-slate-600 bg-white border-slate-100 hover:border-[#0b3c26]/30" id="wiz-node-5" onclick="changeWizPanel(5)">5. Nhóm đối tượng &amp; Loại căn</button>
-<button class="w-full text-left p-3 rounded-2xl border transition duration-150 block font-semibold text-slate-600 bg-white border-slate-100 hover:border-[#0b3c26]/30" id="wiz-node-6" onclick="changeWizPanel(6)">6. Khai đơn mẫu &amp; Sổ tay</button>
-<button class="w-full text-left p-3 rounded-2xl border transition duration-150 block font-semibold text-slate-600 bg-white border-slate-100 hover:border-[#0b3c26]/30" id="wiz-node-7" onclick="changeWizPanel(7)">7. Tải lên tệp scan số hóa</button>
-<button class="w-full text-left p-3 rounded-2xl border transition duration-150 block font-semibold text-slate-600 bg-white border-slate-100 hover:border-[#0b3c26]/30" id="wiz-node-8" onclick="changeWizPanel(8)">8. Trạng thái hồ sơ mềm (Scan)</button>
-<button class="w-full text-left p-3 rounded-2xl border transition duration-150 block font-semibold text-slate-600 bg-white border-slate-100 hover:border-[#0b3c26]/30" id="wiz-node-9" onclick="changeWizPanel(9)">9. Lịch hẹn bản cứng đối chứng</button>
-<button class="w-full text-left p-3 rounded-2xl border transition duration-150 block font-semibold text-slate-600 bg-white border-slate-100 hover:border-[#0b3c26]/30" id="wiz-node-10" onclick="changeWizPanel(10)">10. Thẩm duyệt suất mua NOXH</button>
-<button class="w-full text-left p-3 rounded-2xl border transition duration-150 block font-semibold text-slate-600 bg-white border-slate-100 hover:border-[#0b3c26]/30" id="wiz-node-11" onclick="changeWizPanel(11)">11. Bốc thăm &amp; Ký số HĐMB</button>
+<button class="w-full text-left p-3 rounded-2xl border transition duration-150 block font-semibold text-slate-600 bg-white border-slate-100 hover:border-[#0b3c26]/30" id="wiz-node-4" onclick="changeWizPanel(4)">5. Kênh biết đến thông tin dự án</button>
+<button class="w-full text-left p-3 rounded-2xl border transition duration-150 block font-semibold text-slate-600 bg-white border-slate-100 hover:border-[#0b3c26]/30" id="wiz-node-5" onclick="changeWizPanel(5)">6. Nhóm đối tượng &amp; Loại căn</button>
+<button class="w-full text-left p-3 rounded-2xl border transition duration-150 block font-semibold text-slate-600 bg-white border-slate-100 hover:border-[#0b3c26]/30" id="wiz-node-6" onclick="changeWizPanel(6)">7. Khai đơn mẫu &amp; Upload bản Scan</button>
+<button class="w-full text-left p-3 rounded-2xl border transition duration-150 block font-semibold text-slate-600 bg-white border-slate-100 hover:border-[#0b3c26]/30 hidden" id="wiz-node-7" onclick="changeWizPanel(7)" style="display:none!important">7. Upload bản Scan số hóa</button>
+<button class="w-full text-left p-3 rounded-2xl border transition duration-150 block font-semibold text-slate-600 bg-white border-slate-100 hover:border-[#0b3c26]/30" id="wiz-node-8" onclick="changeWizPanel(8)">8. Trạng thái hồ sơ mềm</button>
+<button class="w-full text-left p-3 rounded-2xl border transition duration-150 block font-semibold text-slate-600 bg-white border-slate-100 hover:border-[#0b3c26]/30" id="wiz-node-9" onclick="changeWizPanel(9)">9. Đối chứng bản cứng (Lịch hẹn)</button>
+<button class="w-full text-left p-3 rounded-2xl border transition duration-150 block font-semibold text-slate-600 bg-white border-slate-100 hover:border-[#0b3c26]/30" id="wiz-node-10" onclick="changeWizPanel(10)">10. Thẩm duyệt liên sở</button>
+<button class="w-full text-left p-3 rounded-2xl border transition duration-150 block font-semibold text-slate-600 bg-white border-slate-100 hover:border-[#0b3c26]/30 hidden" id="wiz-node-11" onclick="changeWizPanel(11)" style="display:none!important">11. Hoàn tất &amp; Hoàn tất hồ sơ</button>
 </div>
 </div>
 </aside>
@@ -2347,11 +2431,7 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 </div>
 <div id="wiz-agent-wrapper">
 <label class="block font-bold text-slate-500 mb-1.5 uppercase tracking-wider text-[10px]">DANH SÁCH ĐẠI LÝ ỦY QUYỀN</label>
-<select class="w-full border border-slate-200 rounded-xl p-3 font-semibold outline-none focus:ring-2 focus:ring-emerald-700 bg-slate-50 text-slate-800 text-[11px] sm:text-xs" id="wiz-attr-agent">
-<option selected="" value="ha-long-land">Hạ Long Land - Đại lý chiến lược</option>
-<option value="quang-ninh-homes">Quảng Ninh Homes - Đơn vị phân phối cấp 1</option>
-<option value="no-idea">Không nhớ rõ đại lý (Hệ thống tự đối soát)</option>
-</select>
+<select class="w-full border border-slate-200 rounded-xl p-3 font-semibold outline-none focus:ring-2 focus:ring-emerald-700 bg-slate-50 text-slate-800 text-[11px] sm:text-xs" id="wiz-attr-agent"><option value="Tland">Tland</option><option value="Thành Phát Global">Thành Phát Global</option><option value="THMLand">THMLand</option><option value="Bhomes">Bhomes</option><option value="Nhật Minh Land">Nhật Minh Land</option><option value="An Việt Homes">An Việt Homes</option><option value="SRT Đông Bắc">SRT Đông Bắc</option><option value="SupperLand">SupperLand</option><option value="Trust Real">Trust Real</option></select>
 </div>
 </div>
 <div class="flex justify-end pt-4 border-t border-slate-100 bim-v73-wiz-actions">
@@ -2368,14 +2448,7 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 <!-- Left: 10 Groups reference list ONLY -->
 <div class="space-y-2.5 bg-slate-50 p-4 rounded-3xl border border-slate-200/60 bim-v078-step5-left">
 <h4 class="font-extrabold text-[#0b3c26] text-xs border-b pb-1.5 uppercase">Mô tả 10 Nhóm Đối Tượng Thụ Hưởng (Điều 76)</h4>
-<div class="space-y-2 max-h-48 overflow-y-auto sidebar-scroll pr-1 text-[11px] leading-relaxed text-slate-600">
-<div class="bim-beneficiary-row" data-group-code="K1"><span class="bim-k-pill">K1</span><span class="bim-group-copy">Người có công với cách mạng theo quy định.</span></div>
-<div class="bim-beneficiary-row" data-group-code="K4"><span class="bim-k-pill">K4</span><span class="bim-group-copy">Hộ nghèo, cận nghèo tại khu vực đô thị.</span></div>
-<div class="bim-beneficiary-row" data-group-code="K5"><span class="bim-k-pill">K5</span><span class="bim-group-copy">Người lao động có thu nhập thấp đô thị (Phân luồng: Có HĐLĐ &amp; BHXH hoặc Lao động tự do).</span></div>
-<div class="bim-beneficiary-row" data-group-code="K6"><span class="bim-k-pill">K6</span><span class="bim-group-copy">Sĩ quan, quân nhân chuyên nghiệp, hạ sĩ quan lực lượng vũ trang.</span></div>
-<div class="bim-beneficiary-row" data-group-code="K8"><span class="bim-k-pill">K8</span><span class="bim-group-copy">Cán bộ, công chức, viên chức Nhà nước.</span></div>
-<div class="bim-beneficiary-row" data-group-code="K10"><span class="bim-k-pill">K10</span><span class="bim-group-copy">Hộ gia đình, cá nhân bị thu hồi đất và phải giải tỏa.</span></div>
-</div>
+<div class="space-y-2 max-h-48 overflow-y-auto sidebar-scroll pr-1 text-[11px] leading-relaxed text-slate-600"><div class="bim-beneficiary-row" data-group-code="K1"><span class="bim-k-pill">K1</span><span class="bim-group-copy">Người có công với cách mạng theo quy định.</span></div><div class="bim-beneficiary-row" data-group-code="K2"><span class="bim-k-pill">K2</span><span class="bim-group-copy">Hộ gia đình nghèo, cận nghèo tại khu vực nông thôn.</span></div><div class="bim-beneficiary-row" data-group-code="K3"><span class="bim-k-pill">K3</span><span class="bim-group-copy">Hộ gia đình tại khu vực nông thôn thuộc vùng thường xuyên bị thiên tai, biến đổi khí hậu.</span></div><div class="bim-beneficiary-row" data-group-code="K4"><span class="bim-k-pill">K4</span><span class="bim-group-copy">Hộ nghèo, cận nghèo tại khu vực đô thị.</span></div><div class="bim-beneficiary-row" data-group-code="K5"><span class="bim-k-pill">K5</span><span class="bim-group-copy">Người lao động có thu nhập thấp tại khu vực đô thị.</span></div><div class="bim-beneficiary-row" data-group-code="K6"><span class="bim-k-pill">K6</span><span class="bim-group-copy">Công nhân, người lao động đang làm việc tại doanh nghiệp, hợp tác xã, liên hiệp hợp tác xã.</span></div><div class="bim-beneficiary-row" data-group-code="K7"><span class="bim-k-pill">K7</span><span class="bim-group-copy">Sĩ quan, quân nhân chuyên nghiệp, hạ sĩ quan lực lượng vũ trang.</span></div><div class="bim-beneficiary-row" data-group-code="K8"><span class="bim-k-pill">K8</span><span class="bim-group-copy">Cán bộ, công chức, viên chức Nhà nước.</span></div><div class="bim-beneficiary-row" data-group-code="K9"><span class="bim-k-pill">K9</span><span class="bim-group-copy">Đối tượng đã trả lại nhà ở công vụ theo quy định.</span></div><div class="bim-beneficiary-row" data-group-code="K10"><span class="bim-k-pill">K10</span><span class="bim-group-copy">Hộ gia đình, cá nhân bị thu hồi đất và phải giải tỏa.</span></div></div>
 </div>
 <!-- Right: Unit Size Selection -->
 <div class="space-y-3 bg-slate-50 p-4 rounded-3xl border border-slate-200/60 bim-v078-step5-apartment">
@@ -2399,18 +2472,11 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 <h4 class="font-extrabold text-[#0b3c26] text-xs border-b pb-1.5 uppercase">Chọn nhóm phù hợp với bạn</h4>
 <div>
 <label class="block font-bold text-slate-500 mb-1 text-[10px] uppercase tracking-wider">NHÓM ĐỐI TƯỢNG</label>
-<select class="w-full border border-slate-200 rounded-xl p-2.5 bg-slate-50 font-bold text-slate-800" id="wiz-selected-group" onchange="toggleK5SubGroup()">
-<option value="K5">Nhóm K5 - Thu nhập thấp đô thị</option>
-<option value="K1">Nhóm K1 - Người có công</option>
-<option value="K8">Nhóm K8 - Công chức, viên chức</option>
-</select>
+<select class="w-full border border-slate-200 rounded-xl p-2.5 bg-slate-50 font-bold text-slate-800" id="wiz-selected-group" onchange="toggleK5SubGroup()"><option value="K1">Nhóm K1 - Người có công với cách mạng theo quy định.</option><option value="K2">Nhóm K2 - Hộ gia đình nghèo, cận nghèo tại khu vực nông thôn.</option><option value="K3">Nhóm K3 - Hộ gia đình tại khu vực nông thôn thuộc vùng thường xuy</option><option value="K4">Nhóm K4 - Hộ nghèo, cận nghèo tại khu vực đô thị.</option><option selected="" value="K5">Nhóm K5 - Người lao động có thu nhập thấp tại khu vực đô thị.</option><option value="K6">Nhóm K6 - Công nhân, người lao động đang làm việc tại doanh nghiệ</option><option value="K7">Nhóm K7 - Sĩ quan, quân nhân chuyên nghiệp, hạ sĩ quan lực lượng </option><option value="K8">Nhóm K8 - Cán bộ, công chức, viên chức Nhà nước.</option><option value="K9">Nhóm K9 - Đối tượng đã trả lại nhà ở công vụ theo quy định.</option><option value="K10">Nhóm K10 - Hộ gia đình, cá nhân bị thu hồi đất và phải giải tỏa.</option></select>
 </div>
 <div id="wiz-k5-sub-wrapper">
 <label class="block font-bold text-slate-500 mb-1 text-[10px] uppercase tracking-wider">PHÂN NHÁNH K5</label>
-<select class="w-full border border-slate-200 rounded-xl p-2.5 bg-slate-50 font-bold text-slate-800" id="wiz-selected-subgroup">
-<option value="k5-hdld">Có Hợp đồng lao động &amp; đóng BHXH</option>
-<option value="k5-free">Lao động tự do (Không có BHXH)</option>
-</select>
+<select class="w-full border border-slate-200 rounded-xl p-2.5 bg-slate-50 font-bold text-slate-800" id="wiz-selected-subgroup"><option value="k5-hdld">Có HĐLĐ &amp; đóng BHXH</option><option value="k5-free">Lao động tự do</option></select>
 </div>
 </div>
 <div class="flex justify-between pt-6 border-t border-slate-100 bim-v73-wiz-actions">
@@ -2427,7 +2493,7 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 <i class="fa-solid fa-circle-info text-emerald-700 mt-0.5 text-base"></i>
 <div>
 <span class="font-extrabold block text-xs text-emerald-900">DANH MỤC HỒ SƠ SỐ HÓA HOÀN CHỈNH:</span>
-                                    Theo Khoản 6 Điều 78 Luật Nhà ở 2023. Vui lòng tham chiếu, tải mẫu và chuẩn bị kỹ lưỡng trước khi tải bản scan ở Bước 7.
+                                    Theo Khoản 6 Điều 78 Luật Nhà ở 2023. Vui lòng tham chiếu, tải mẫu và chuẩn bị kỹ lưỡng trước khi tải bản scan trong cùng Bước 7.
                                 </div>
 </div>
 <!-- Full 12 items Dossier Checklist Table matching layout of image_16c625.png -->
@@ -2441,117 +2507,56 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 <th class="p-3 font-bold w-60 text-center">Tải Mẫu / Sổ Tay</th>
 </tr>
 </thead>
-<tbody class="divide-y divide-slate-150 text-slate-700">
-<tr>
-<td class="p-3 text-center font-bold" data-label="STT">1</td>
-<td class="p-3 font-medium" data-label="Tên Hồ Sơ Pháp Lý"><strong>Mẫu số 01:</strong> Đơn đăng ký mua, thuê mua, thuê NOXH <span class="text-slate-400 font-normal">(Ban hành kèm theo NĐ261/2025/NĐ-CP)</span></td>
-<td class="p-3 text-center" data-label="Tải Mẫu / Sổ Tay"><div class="bim-doc-actions"><button class="bim-doc-download px-3 transition space-x-1 py-1.5 justify-center font-bold items-center rounded-lg flex bg-[#0b3c26] text-white hover:bg-emerald-850 bim-doc-btn" onclick="downloadPdfMock('M01')">
-<i class="fa-solid fa-download"></i> <span>Tải mẫu</span>
-</button><button class="bim-doc-btn px-3 transition space-x-1 py-1.5 bim-doc-guide justify-center font-bold items-center rounded-lg flex hover:bg-slate-200 bg-slate-100 text-slate-700" onclick="openDetailedGuideModal('m01')">
-<i class="fa-solid fa-book"></i> <span>Sổ tay</span>
-</button></div></td>
-</tr>
-<tr class="bg-slate-50/50">
-<td class="p-3 text-center font-bold" data-label="STT">2</td>
-<td class="p-3 font-medium" data-label="Tên Hồ Sơ Pháp Lý">Xác nhận quá trình tham gia Bảo hiểm xã hội (In trực tiếp từ VssID hoặc giấy xác nhận BHXH)</td>
-<td class="p-3 text-center" data-label="Tải Mẫu / Sổ Tay"><div class="bim-doc-actions"><span class="bim-doc-placeholder"></span><button class="mx-auto bim-doc-btn px-3 transition space-x-1 py-1.5 bim-doc-guide justify-center font-bold items-center rounded-lg flex hover:bg-slate-200 bg-slate-100 text-slate-700" onclick="openDetailedGuideModal('bhxh')">
-<i class="fa-solid fa-book"></i> <span>Sổ tay</span>
-</button></div></td>
-</tr>
-<tr>
-<td class="p-3 text-center font-bold" data-label="STT">3</td>
-<td class="p-3 font-medium" data-label="Tên Hồ Sơ Pháp Lý"><strong>Mẫu số 01a:</strong> Giấy tờ chứng minh đối tượng được hưởng chính sách hỗ trợ về nhà ở xã hội <span class="text-slate-400 font-normal">(Ban hành kèm theo Thông tư 32/2025/TT-BXD)</span></td>
-<td class="p-3 text-center" data-label="Tải Mẫu / Sổ Tay"><div class="bim-doc-actions"><button class="bim-doc-download px-3 transition space-x-1 py-1.5 justify-center font-bold items-center rounded-lg flex bg-[#0b3c26] text-white hover:bg-emerald-850 bim-doc-btn" onclick="downloadPdfMock('M01A')">
-<i class="fa-solid fa-download"></i> <span>Tải mẫu</span>
-</button><button class="bim-doc-btn px-3 transition space-x-1 py-1.5 bim-doc-guide justify-center font-bold items-center rounded-lg flex hover:bg-slate-200 bg-slate-100 text-slate-700" onclick="openDetailedGuideModal('m01a')">
-<i class="fa-solid fa-book"></i> <span>Sổ tay</span>
-</button></div></td>
-</tr>
-<tr class="bg-slate-50/50">
-<td class="p-3 text-center font-bold" data-label="STT">4</td>
-<td class="p-3 font-medium" data-label="Tên Hồ Sơ Pháp Lý"><strong>Mẫu số 02 / Mẫu số 03:</strong> Giấy tờ chứng minh điều kiện về nhà ở (Chưa có nhà hoặc có nhà nhưng diện tích bình quân đầu người dưới 15m² sàn) <span class="text-slate-400 font-normal">(TT08/2026/TT-BXD hoặc TT05/2024/TT-BXD)</span></td>
-<td class="p-3 text-center" data-label="Tải Mẫu / Sổ Tay"><div class="bim-doc-actions"><button class="bim-doc-download px-3 transition space-x-1 py-1.5 justify-center font-bold items-center rounded-lg flex bg-[#0b3c26] text-white hover:bg-emerald-850 bim-doc-btn" onclick="downloadPdfMock('M02_03')">
-<i class="fa-solid fa-download"></i> <span>Tải mẫu</span>
-</button><button class="bim-doc-btn px-3 transition space-x-1 py-1.5 bim-doc-guide justify-center font-bold items-center rounded-lg flex hover:bg-slate-200 bg-slate-100 text-slate-700" onclick="openDetailedGuideModal('m02_03')">
-<i class="fa-solid fa-book"></i> <span>Sổ tay</span>
-</button></div></td>
-</tr>
-<tr>
-<td class="p-3 text-center font-bold" data-label="STT">5</td>
-<td class="p-3 font-medium" data-label="Tên Hồ Sơ Pháp Lý">Bảng tiền công, tiền lương trong 01 năm liền kề, tính từ thời điểm nộp hồ sơ (Chứng minh thu nhập hợp lệ)</td>
-<td class="p-3 text-center" data-label="Tải Mẫu / Sổ Tay"><div class="bim-doc-actions"><span class="bim-doc-placeholder"></span><button class="mx-auto bim-doc-btn px-3 transition space-x-1 py-1.5 bim-doc-guide justify-center font-bold items-center rounded-lg flex hover:bg-slate-200 bg-slate-100 text-slate-700" onclick="openDetailedGuideModal('luong')">
-<i class="fa-solid fa-book"></i> <span>Sổ tay</span>
-</button></div></td>
-</tr>
-<tr class="bg-slate-50/50">
-<td class="p-3 text-center font-bold" data-label="STT">6</td>
-<td class="p-3 font-medium" data-label="Tên Hồ Sơ Pháp Lý">Quyết định/xác nhận nghỉ thai sản <span class="text-emerald-700 font-bold">(Tùy chọn - Nếu có)</span> <span class="text-slate-400 font-normal">(Áp dụng đối với TH KH nghỉ thai sản trong vòng 12 tháng xác nhận lương)</span></td>
-<td class="p-3 text-center" data-label="Tải Mẫu / Sổ Tay"><div class="bim-doc-actions"><span class="bim-doc-placeholder"></span><button class="mx-auto bim-doc-btn px-3 transition space-x-1 py-1.5 bim-doc-guide justify-center font-bold items-center rounded-lg flex hover:bg-slate-200 bg-slate-100 text-slate-700" onclick="openDetailedGuideModal('thaisan')">
-<i class="fa-solid fa-book"></i> <span>Sổ tay</span>
-</button></div></td>
-</tr>
-<tr>
-<td class="p-3 text-center font-bold" data-label="STT">7</td>
-<td class="p-3 font-medium" data-label="Tên Hồ Sơ Pháp Lý">Chứng minh đang làm việc tại Quảng Ninh (Hợp đồng lao động, khoảng cách làm việc 15km - 30km theo QĐ 04/2026/QĐ-UBND của UBND tỉnh Quảng Ninh)</td>
-<td class="p-3 text-center" data-label="Tải Mẫu / Sổ Tay"><div class="bim-doc-actions"><button class="bim-doc-download px-3 transition space-x-1 py-1.5 justify-center font-bold items-center rounded-lg flex bg-[#0b3c26] text-white hover:bg-emerald-850 bim-doc-btn" onclick="downloadPdfMock('QD04')">
-<i class="fa-solid fa-download"></i> <span>Tải mẫu</span>
-</button><button class="bim-doc-btn px-3 transition space-x-1 py-1.5 bim-doc-guide justify-center font-bold items-center rounded-lg flex hover:bg-slate-200 bg-slate-100 text-slate-700" onclick="openDetailedGuideModal('qd04')">
-<i class="fa-solid fa-book"></i> <span>Sổ tay</span>
-</button></div></td>
-</tr>
-<tr class="bg-slate-50/50">
-<td class="p-3 text-center font-bold" data-label="STT">8</td>
-<td class="p-3 font-medium" data-label="Tên Hồ Sơ Pháp Lý">Giấy tờ chứng minh độc thân đang nuôi con vị thành niên <span class="text-emerald-700 font-bold">(Tùy chọn - Nếu có)</span></td>
-<td class="p-3 text-center" data-label="Tải Mẫu / Sổ Tay"><div class="bim-doc-actions"><span class="bim-doc-placeholder"></span><button class="mx-auto bim-doc-btn px-3 transition space-x-1 py-1.5 bim-doc-guide justify-center font-bold items-center rounded-lg flex hover:bg-slate-200 bg-slate-100 text-slate-700" onclick="openDetailedGuideModal('docthancon')">
-<i class="fa-solid fa-book"></i> <span>Sổ tay</span>
-</button></div></td>
-</tr>
-<tr>
-<td class="p-3 text-center font-bold" data-label="STT">9</td>
-<td class="p-3 font-medium" data-label="Tên Hồ Sơ Pháp Lý">Xác nhận thông tin cư trú của người đứng đơn (và vợ/chồng nếu đăng ký tạm trú/thường trú khác địa điểm)</td>
-<td class="p-3 text-center" data-label="Tải Mẫu / Sổ Tay"><div class="bim-doc-actions"><button class="bim-doc-download px-3 transition space-x-1 py-1.5 justify-center font-bold items-center rounded-lg flex bg-[#0b3c26] text-white hover:bg-emerald-850 bim-doc-btn" onclick="downloadPdfMock('CUTRU')">
-<i class="fa-solid fa-download"></i> <span>Tải mẫu</span>
-</button><button class="bim-doc-btn px-3 transition space-x-1 py-1.5 bim-doc-guide justify-center font-bold items-center rounded-lg flex hover:bg-slate-200 bg-slate-100 text-slate-700" onclick="openDetailedGuideModal('cutru')">
-<i class="fa-solid fa-book"></i> <span>Sổ tay</span>
-</button></div></td>
-</tr>
-<tr class="bg-slate-50/50">
-<td class="p-3 text-center font-bold" data-label="STT">10</td>
-<td class="p-3 font-medium" data-label="Tên Hồ Sơ Pháp Lý">Bản sao CCCD/Hộ chiếu các thành viên trong hộ gia đình (Trẻ em chưa thành niên nộp Giấy khai sinh)</td>
-<td class="p-3 text-center" data-label="Tải Mẫu / Sổ Tay"><div class="bim-doc-actions"><span class="bim-doc-placeholder"></span><button class="mx-auto bim-doc-btn px-3 transition space-x-1 py-1.5 bim-doc-guide justify-center font-bold items-center rounded-lg flex hover:bg-slate-200 bg-slate-100 text-slate-700" onclick="openDetailedGuideModal('thanhvien')">
-<i class="fa-solid fa-book"></i> <span>Sổ tay</span>
-</button></div></td>
-</tr>
-<tr>
-<td class="p-3 text-center font-bold" data-label="STT">11</td>
-<td class="p-3 font-medium" data-label="Tên Hồ Sơ Pháp Lý">Giấy chứng nhận kết hôn hoặc Giấy xác nhận tình trạng hôn nhân độc thân của người đứng đơn</td>
-<td class="p-3 text-center" data-label="Tải Mẫu / Sổ Tay"><div class="bim-doc-actions"><span class="bim-doc-placeholder"></span><button class="mx-auto bim-doc-btn px-3 transition space-x-1 py-1.5 bim-doc-guide justify-center font-bold items-center rounded-lg flex hover:bg-slate-200 bg-slate-100 text-slate-700" onclick="openDetailedGuideModal('honnhan')">
-<i class="fa-solid fa-book"></i> <span>Sổ tay</span>
-</button></div></td>
-</tr>
-<tr class="bg-slate-50/50">
-<td class="p-3 text-center font-bold" data-label="STT">12</td>
-<td class="p-3 font-medium" data-label="Tên Hồ Sơ Pháp Lý">Giấy tờ xác nhận đối tượng khuyết tật <span class="text-emerald-700 font-bold">(Tùy chọn - Nếu có)</span></td>
-<td class="p-3 text-center" data-label="Tải Mẫu / Sổ Tay"><div class="bim-doc-actions"><button class="bim-doc-download px-3 transition space-x-1 py-1.5 justify-center font-bold items-center rounded-lg flex bg-[#0b3c26] text-white hover:bg-emerald-850 bim-doc-btn" onclick="downloadPdfMock('KHUYETTAT')">
-<i class="fa-solid fa-download"></i> <span>Tải mẫu</span>
-</button><button class="bim-doc-btn px-3 transition space-x-1 py-1.5 bim-doc-guide justify-center font-bold items-center rounded-lg flex hover:bg-slate-200 bg-slate-100 text-slate-700" onclick="openDetailedGuideModal('khuyettat')">
-<i class="fa-solid fa-book"></i> <span>Sổ tay</span>
-</button></div></td>
-</tr>
-</tbody>
+<tbody class="divide-y divide-slate-150 text-slate-700"><tr data-doc-index="1"><td class="p-3 text-center font-bold text-slate-600">1</td><td class="p-3 font-semibold text-slate-700">Đơn đăng ký mua, thuê mua, thuê NOXH - Mẫu số 01</td><td class="p-3"><div class="bim-doc-actions"><button class="bim-doc-btn bim-doc-download bg-[#0b3c26] text-white px-3 py-2 rounded-xl text-[10px] font-bold" onclick="downloadPdfMock('Mẫu hồ sơ 01')">Tải mẫu</button><button class="bim-doc-btn bim-doc-guide bg-slate-100 px-3 py-2 rounded-xl text-[10px] font-bold" onclick="openDetailedGuideModal(this)">Sổ tay</button></div></td></tr><tr data-doc-index="2"><td class="p-3 text-center font-bold text-slate-600">2</td><td class="p-3 font-semibold text-slate-700">Xác nhận quá trình tham gia BHXH hoặc giấy xác nhận tương đương</td><td class="p-3"><div class="bim-doc-actions"><button class="bim-doc-btn bim-doc-download bg-[#0b3c26] text-white px-3 py-2 rounded-xl text-[10px] font-bold" onclick="downloadPdfMock('Mẫu hồ sơ 02')">Tải mẫu</button><button class="bim-doc-btn bim-doc-guide bg-slate-100 px-3 py-2 rounded-xl text-[10px] font-bold" onclick="openDetailedGuideModal(this)">Sổ tay</button></div></td></tr><tr data-doc-index="3"><td class="p-3 text-center font-bold text-slate-600">3</td><td class="p-3 font-semibold text-slate-700">Giấy tờ chứng minh đối tượng được hưởng chính sách hỗ trợ NOXH - Mẫu 01a</td><td class="p-3"><div class="bim-doc-actions"><button class="bim-doc-btn bim-doc-download bg-[#0b3c26] text-white px-3 py-2 rounded-xl text-[10px] font-bold" onclick="downloadPdfMock('Mẫu hồ sơ 03')">Tải mẫu</button><button class="bim-doc-btn bim-doc-guide bg-slate-100 px-3 py-2 rounded-xl text-[10px] font-bold" onclick="openDetailedGuideModal(this)">Sổ tay</button></div></td></tr><tr data-doc-index="4"><td class="p-3 text-center font-bold text-slate-600">4</td><td class="p-3 font-semibold text-slate-700">Giấy tờ chứng minh điều kiện về nhà ở - Mẫu 02/Mẫu 03</td><td class="p-3"><div class="bim-doc-actions"><button class="bim-doc-btn bim-doc-download bg-[#0b3c26] text-white px-3 py-2 rounded-xl text-[10px] font-bold" onclick="downloadPdfMock('Mẫu hồ sơ 04')">Tải mẫu</button><button class="bim-doc-btn bim-doc-guide bg-slate-100 px-3 py-2 rounded-xl text-[10px] font-bold" onclick="openDetailedGuideModal(this)">Sổ tay</button></div></td></tr><tr data-doc-index="5" data-requires="k5-hdld"><td class="p-3 text-center font-bold text-slate-600">5</td><td class="p-3 font-semibold text-slate-700">Bảng tiền công, tiền lương trong 01 năm liền kề</td><td class="p-3"><div class="bim-doc-actions"><button class="bim-doc-btn bim-doc-download bg-[#0b3c26] text-white px-3 py-2 rounded-xl text-[10px] font-bold" onclick="downloadPdfMock('Mẫu hồ sơ 05')">Tải mẫu</button><button class="bim-doc-btn bim-doc-guide bg-slate-100 px-3 py-2 rounded-xl text-[10px] font-bold" onclick="openDetailedGuideModal(this)">Sổ tay</button></div></td></tr><tr data-doc-index="6" data-requires="k5-free"><td class="p-3 text-center font-bold text-slate-600">6</td><td class="p-3 font-semibold text-slate-700">Xác nhận thu nhập đối với lao động tự do hoặc nhóm không có HĐLĐ</td><td class="p-3"><div class="bim-doc-actions"><button class="bim-doc-btn bim-doc-download bg-[#0b3c26] text-white px-3 py-2 rounded-xl text-[10px] font-bold" onclick="downloadPdfMock('Mẫu hồ sơ 06')">Tải mẫu</button><button class="bim-doc-btn bim-doc-guide bg-slate-100 px-3 py-2 rounded-xl text-[10px] font-bold" onclick="openDetailedGuideModal(this)">Sổ tay</button></div></td></tr><tr data-doc-index="7"><td class="p-3 text-center font-bold text-slate-600">7</td><td class="p-3 font-semibold text-slate-700">Quyết định/xác nhận nghỉ thai sản (nếu có)</td><td class="p-3"><div class="bim-doc-actions"><button class="bim-doc-btn bim-doc-download bg-[#0b3c26] text-white px-3 py-2 rounded-xl text-[10px] font-bold" onclick="downloadPdfMock('Mẫu hồ sơ 07')">Tải mẫu</button><button class="bim-doc-btn bim-doc-guide bg-slate-100 px-3 py-2 rounded-xl text-[10px] font-bold" onclick="openDetailedGuideModal(this)">Sổ tay</button></div></td></tr><tr data-doc-index="8"><td class="p-3 text-center font-bold text-slate-600">8</td><td class="p-3 font-semibold text-slate-700">Chứng minh đang làm việc tại Quảng Ninh</td><td class="p-3"><div class="bim-doc-actions"><button class="bim-doc-btn bim-doc-download bg-[#0b3c26] text-white px-3 py-2 rounded-xl text-[10px] font-bold" onclick="downloadPdfMock('Mẫu hồ sơ 08')">Tải mẫu</button><button class="bim-doc-btn bim-doc-guide bg-slate-100 px-3 py-2 rounded-xl text-[10px] font-bold" onclick="openDetailedGuideModal(this)">Sổ tay</button></div></td></tr><tr data-doc-index="9"><td class="p-3 text-center font-bold text-slate-600">9</td><td class="p-3 font-semibold text-slate-700">Giấy tờ chứng minh độc thân đang nuôi con vị thành niên (nếu có)</td><td class="p-3"><div class="bim-doc-actions"><button class="bim-doc-btn bim-doc-download bg-[#0b3c26] text-white px-3 py-2 rounded-xl text-[10px] font-bold" onclick="downloadPdfMock('Mẫu hồ sơ 09')">Tải mẫu</button><button class="bim-doc-btn bim-doc-guide bg-slate-100 px-3 py-2 rounded-xl text-[10px] font-bold" onclick="openDetailedGuideModal(this)">Sổ tay</button></div></td></tr><tr data-doc-index="10"><td class="p-3 text-center font-bold text-slate-600">10</td><td class="p-3 font-semibold text-slate-700">Xác nhận thông tin cư trú của người đứng đơn và vợ/chồng nếu có</td><td class="p-3"><div class="bim-doc-actions"><button class="bim-doc-btn bim-doc-download bg-[#0b3c26] text-white px-3 py-2 rounded-xl text-[10px] font-bold" onclick="downloadPdfMock('Mẫu hồ sơ 10')">Tải mẫu</button><button class="bim-doc-btn bim-doc-guide bg-slate-100 px-3 py-2 rounded-xl text-[10px] font-bold" onclick="openDetailedGuideModal(this)">Sổ tay</button></div></td></tr><tr data-doc-index="11"><td class="p-3 text-center font-bold text-slate-600">11</td><td class="p-3 font-semibold text-slate-700">Bản sao CCCD/Hộ chiếu các thành viên trong hộ gia đình</td><td class="p-3"><div class="bim-doc-actions"><button class="bim-doc-btn bim-doc-download bg-[#0b3c26] text-white px-3 py-2 rounded-xl text-[10px] font-bold" onclick="downloadPdfMock('Mẫu hồ sơ 11')">Tải mẫu</button><button class="bim-doc-btn bim-doc-guide bg-slate-100 px-3 py-2 rounded-xl text-[10px] font-bold" onclick="openDetailedGuideModal(this)">Sổ tay</button></div></td></tr><tr data-doc-index="12"><td class="p-3 text-center font-bold text-slate-600">12</td><td class="p-3 font-semibold text-slate-700">Giấy khai sinh của con chưa thành niên trong hộ gia đình</td><td class="p-3"><div class="bim-doc-actions"><button class="bim-doc-btn bim-doc-download bg-[#0b3c26] text-white px-3 py-2 rounded-xl text-[10px] font-bold" onclick="downloadPdfMock('Mẫu hồ sơ 12')">Tải mẫu</button><button class="bim-doc-btn bim-doc-guide bg-slate-100 px-3 py-2 rounded-xl text-[10px] font-bold" onclick="openDetailedGuideModal(this)">Sổ tay</button></div></td></tr><tr data-doc-index="13"><td class="p-3 text-center font-bold text-slate-600">13</td><td class="p-3 font-semibold text-slate-700">Giấy chứng nhận kết hôn hoặc xác nhận tình trạng hôn nhân</td><td class="p-3"><div class="bim-doc-actions"><button class="bim-doc-btn bim-doc-download bg-[#0b3c26] text-white px-3 py-2 rounded-xl text-[10px] font-bold" onclick="downloadPdfMock('Mẫu hồ sơ 13')">Tải mẫu</button><button class="bim-doc-btn bim-doc-guide bg-slate-100 px-3 py-2 rounded-xl text-[10px] font-bold" onclick="openDetailedGuideModal(this)">Sổ tay</button></div></td></tr><tr data-doc-index="14"><td class="p-3 text-center font-bold text-slate-600">14</td><td class="p-3 font-semibold text-slate-700">Giấy tờ xác nhận đối tượng khuyết tật (nếu có)</td><td class="p-3"><div class="bim-doc-actions"><button class="bim-doc-btn bim-doc-download bg-[#0b3c26] text-white px-3 py-2 rounded-xl text-[10px] font-bold" onclick="downloadPdfMock('Mẫu hồ sơ 14')">Tải mẫu</button><button class="bim-doc-btn bim-doc-guide bg-slate-100 px-3 py-2 rounded-xl text-[10px] font-bold" onclick="openDetailedGuideModal(this)">Sổ tay</button></div></td></tr><tr data-doc-index="15"><td class="p-3 text-center font-bold text-slate-600">15</td><td class="p-3 font-semibold text-slate-700">Giấy tờ chứng minh người có công/các nhóm chính sách K1-K4 (nếu thuộc nhóm)</td><td class="p-3"><div class="bim-doc-actions"><button class="bim-doc-btn bim-doc-download bg-[#0b3c26] text-white px-3 py-2 rounded-xl text-[10px] font-bold" onclick="downloadPdfMock('Mẫu hồ sơ 15')">Tải mẫu</button><button class="bim-doc-btn bim-doc-guide bg-slate-100 px-3 py-2 rounded-xl text-[10px] font-bold" onclick="openDetailedGuideModal(this)">Sổ tay</button></div></td></tr><tr data-doc-index="16"><td class="p-3 text-center font-bold text-slate-600">16</td><td class="p-3 font-semibold text-slate-700">Giấy xác nhận trả lại nhà ở công vụ (nếu thuộc nhóm K9)</td><td class="p-3"><div class="bim-doc-actions"><button class="bim-doc-btn bim-doc-download bg-[#0b3c26] text-white px-3 py-2 rounded-xl text-[10px] font-bold" onclick="downloadPdfMock('Mẫu hồ sơ 16')">Tải mẫu</button><button class="bim-doc-btn bim-doc-guide bg-slate-100 px-3 py-2 rounded-xl text-[10px] font-bold" onclick="openDetailedGuideModal(this)">Sổ tay</button></div></td></tr><tr data-doc-index="17"><td class="p-3 text-center font-bold text-slate-600">17</td><td class="p-3 font-semibold text-slate-700">Quyết định thu hồi đất/phương án bồi thường giải phóng mặt bằng (nếu thuộc nhóm K10)</td><td class="p-3"><div class="bim-doc-actions"><button class="bim-doc-btn bim-doc-download bg-[#0b3c26] text-white px-3 py-2 rounded-xl text-[10px] font-bold" onclick="downloadPdfMock('Mẫu hồ sơ 17')">Tải mẫu</button><button class="bim-doc-btn bim-doc-guide bg-slate-100 px-3 py-2 rounded-xl text-[10px] font-bold" onclick="openDetailedGuideModal(this)">Sổ tay</button></div></td></tr><tr data-doc-index="18"><td class="p-3 text-center font-bold text-slate-600">18</td><td class="p-3 font-semibold text-slate-700">Cam kết tính chính xác hồ sơ và biên nhận kiểm tra danh mục số hóa</td><td class="p-3"><div class="bim-doc-actions"><button class="bim-doc-btn bim-doc-download bg-[#0b3c26] text-white px-3 py-2 rounded-xl text-[10px] font-bold" onclick="downloadPdfMock('Mẫu hồ sơ 18')">Tải mẫu</button><button class="bim-doc-btn bim-doc-guide bg-slate-100 px-3 py-2 rounded-xl text-[10px] font-bold" onclick="openDetailedGuideModal(this)">Sổ tay</button></div></td></tr></tbody>
 </table>
 </div>
 </div>
-<div class="flex justify-between pt-4 border-t border-slate-100 bim-v73-wiz-actions">
+<div class="bim-brd12-upload-merged mt-5 bg-white border border-emerald-100 rounded-3xl p-4 space-y-3 shadow-sm"><h4 class="font-extrabold text-[#0b3c26] text-xs border-b pb-1.5 uppercase">Upload bản Scan số hóa theo danh mục hồ sơ</h4><p class="text-[11px] text-slate-500 leading-relaxed">Danh mục tải lên được gộp trong Bước 7 theo BRD 1.2. Hệ thống chỉ chấp nhận tệp PNG, JPG, JPEG hoặc PDF.</p><div class="bim-v7-upload-scroll"><div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">01</span><div class="bim-v7-info"><strong>Đơn Đăng Ký Mẫu 01 <span class="bim-chip-required">*Bắt buộc</span></strong><p>Tệp đã điền tay đầy đủ, ký tên ghi rõ họ tên.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-m01">Chưa nộp</span><input class="hidden" id="f-doc-m01" onchange="handleSingleUpload('m01')" type="file"/><label for="f-doc-m01"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
+</div><div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">02</span><div class="bim-v7-info"><strong>Xác nhận quá trình tham gia Bảo hiểm xã hội <span class="bim-chip-required">*Bắt buộc</span></strong><p>Ảnh chụp sổ BHXH hoặc màn hình ứng dụng VssID.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-bhxh">Chưa nộp</span><input class="hidden" id="f-doc-bhxh" onchange="handleSingleUpload('bhxh')" type="file"/><label for="f-doc-bhxh"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
+</div><div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">03</span><div class="bim-v7-info"><strong>Mẫu 01a: Xác nhận đối tượng chính sách <span class="bim-chip-required">*Bắt buộc</span></strong><p>Con dấu mộc đỏ tròn chứng thực của UBND.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-m01a">Chưa nộp</span><input class="hidden" id="f-doc-m01a" onchange="handleSingleUpload('m01a')" type="file"/><label for="f-doc-m01a"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
+</div><div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">04</span><div class="bim-v7-info"><strong>Mẫu số 02 hoặc Mẫu 03: Xác nhận điều kiện nhà ở <span class="bim-chip-required">*Bắt buộc</span></strong><p>Giấy chứng nhận thực trạng nhà đất hợp quy.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-m02">Chưa nộp</span><input class="hidden" id="f-doc-m02" onchange="handleSingleUpload('m02')" type="file"/><label for="f-doc-m02"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
+</div><div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">05</span><div class="bim-v7-info"><strong>Bảng lương và thu nhập 01 năm liền kề <span class="bim-chip-required">*Bắt buộc</span></strong><p>Bảng xác nhận lương do cơ quan/doanh nghiệp đóng mộc.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-luong">Chưa nộp</span><input class="hidden" id="f-doc-luong" onchange="handleSingleUpload('luong')" type="file"/><label for="f-doc-luong"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
+</div><div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">06</span><div class="bim-v7-info"><strong>Quyết định nghỉ thai sản <span class="bim-chip-optional">Nếu có</span></strong><p>Dành cho lao động nữ nghỉ chế độ thai sản trong 12 tháng qua.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-thaisan">Chưa nộp</span><input class="hidden" id="f-doc-thaisan" onchange="handleSingleUpload('thaisan')" type="file"/><label for="f-doc-thaisan"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
+</div><div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">07</span><div class="bim-v7-info"><strong>HĐLĐ &amp; Giấy tờ làm việc Quảng Ninh <span class="bim-chip-required">*Bắt buộc</span></strong><p>Hợp đồng lao động hợp lệ và minh chứng khoảng cách.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-qd04">Chưa nộp</span><input class="hidden" id="f-doc-qd04" onchange="handleSingleUpload('qd04')" type="file"/><label for="f-doc-qd04"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
+</div><div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">08</span><div class="bim-v7-info"><strong>Xác nhận độc thân nuôi con nhỏ <span class="bim-chip-optional">Nếu có</span></strong><p>Quyết định ly hôn / giấy chứng tử và nuôi con.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-docthancon">Chưa nộp</span><input class="hidden" id="f-doc-docthancon" onchange="handleSingleUpload('docthancon')" type="file"/><label for="f-doc-docthancon"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
+</div><div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">09</span><div class="bim-v7-info"><strong>Xác nhận thông tin cư trú <span class="bim-chip-required">*Bắt buộc</span></strong><p>Ảnh chụp bản CT07 cư trú hoặc dữ liệu định danh.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-cutru">Chưa nộp</span><input class="hidden" id="f-doc-cutru" onchange="handleSingleUpload('cutru')" type="file"/><label for="f-doc-cutru"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
+</div><div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">10</span><div class="bim-v7-info"><strong>Bản sao CCCD / Khai sinh thành viên <span class="bim-chip-required">*Bắt buộc</span></strong><p>CCCD 2 mặt của các thành viên đăng ký cùng hộ.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-thanhvien">Chưa nộp</span><input class="hidden" id="f-doc-thanhvien" onchange="handleSingleUpload('thanhvien')" type="file"/><label for="f-doc-thanhvien"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
+</div><div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">11</span><div class="bim-v7-info"><strong>Đăng ký kết hôn / Tình trạng độc thân <span class="bim-chip-required">*Bắt buộc</span></strong><p>Chứng nhận kết hôn mộc đỏ hoặc giấy xác nhận độc thân.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-honnhan">Chưa nộp</span><input class="hidden" id="f-doc-honnhan" onchange="handleSingleUpload('honnhan')" type="file"/><label for="f-doc-honnhan"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
+</div><div class="bim-v7-upload-row">
+<div class="bim-v7-upload-top"><span class="bim-v7-num">12</span><div class="bim-v7-info"><strong>Xác nhận đối tượng khuyết tật <span class="bim-chip-optional">Nếu có</span></strong><p>Giấy tờ chứng thực do cơ sở y tế ban hành.</p></div></div>
+<div class="bim-v7-upload-actions"><span id="badge-doc-khuyettat">Chưa nộp</span><input class="hidden" id="f-doc-khuyettat" onchange="handleSingleUpload('khuyettat')" type="file"/><label for="f-doc-khuyettat"><i class="fa-solid fa-upload mr-1"></i>Tải tệp lên</label></div>
+</div></div></div><div class="flex justify-between pt-4 border-t border-slate-100 bim-v73-wiz-actions">
 <button class="text-slate-500 hover:underline font-bold" onclick="changeWizPanel(5)">Quay lại</button>
-<button class="bg-[#0b3c26] hover:bg-emerald-850 text-white font-extrabold px-6 py-3 rounded-xl transition shadow flex items-center space-x-1.5" onclick="changeWizPanel(7)">
+<button class="bg-[#0b3c26] hover:bg-emerald-850 text-white font-extrabold px-6 py-3 rounded-xl transition shadow flex items-center space-x-1.5" onclick="changeWizPanel(8)">
 <span>Tiếp tục: Nộp bản scan số hóa (Bước 7)</span>
 <i class="fa-solid fa-arrow-right"></i>
 </button>
 </div>
 </div>
 <!-- WIZARD STEP 7: UPLOAD SCAN COPIES (12 ITEMS MAPPED EXACTLY) -->
-<div class="hidden space-y-5 text-xs" id="wiz-screen-7">
+<div class="hidden space-y-5 text-xs" id="wiz-screen-7" style="display:none!important">
 <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl text-emerald-950 leading-relaxed">
 <span class="font-extrabold block text-xs text-emerald-900"><i class="fa-solid fa-circle-info mr-1"></i> TIẾP NHẬN HỒ SƠ SỐ HÓA:</span>
                                 Quý khách vui lòng đăng tải đầy đủ tệp ảnh chụp hoặc tệp scan sắc nét của từng đầu mục hồ sơ tương ứng. Các tệp tin được hệ thống xử lý dữ liệu và mã hóa lưu trữ an toàn, phục vụ công tác rà soát thông tin trực tuyến trước khi đối chứng bản giấy.
@@ -2687,12 +2692,12 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 <div>
 <span class="text-amber-400 font-extrabold text-[9px] uppercase tracking-wider block">CHUYÊN VIÊN PHỤ TRÁCH HƯỚNG DẪN MIỄN PHÍ</span>
 <strong class="text-base font-black block">Lê Thu Trang — Phòng Giao Dịch BIM Land</strong>
-<p class="text-[10px] text-emerald-200 mt-0.5">Sẽ liên hệ hỗ trợ điều chỉnh trực tiếp qua điện thoại / Zalo trong vòng 24 giờ tới.</p>
+<p class="text-[10px] text-emerald-200 mt-0.5">Sẽ liên hệ hỗ trợ điều chỉnh trực tiếp qua điện thoại / điện thoại trong vòng 24 giờ tới.</p>
 </div>
 </div>
 <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
 <a class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-black px-4 py-2.5 rounded-xl transition text-center text-[10px] whitespace-nowrap" href="tel:0962031818"><i class="fa-solid fa-phone mr-1"></i> Gọi Điện Ngay</a>
-<button class="bg-white/10 hover:bg-white/20 text-white font-bold px-4 py-2.5 rounded-xl border border-white/20 transition text-center text-[10px] whitespace-nowrap" onclick="showToast('Yêu cầu hỗ trợ Zalo đã được gửi tới chuyên viên!', 'success')"><i class="fa-solid fa-message mr-1"></i> Liên Hệ Zalo</button>
+<button class="bg-white/10 hover:bg-white/20 text-white font-bold px-4 py-2.5 rounded-xl border border-white/20 transition text-center text-[10px] whitespace-nowrap hidden" onclick="showToast('Yêu cầu hỗ trợ điện thoại đã được gửi tới chuyên viên!', 'success')" style="display:none!important;display:none!important"><i class="fa-solid fa-message mr-1"></i> Liên hệ hỗ trợ</button>
 </div>
 </div>
 </div>
@@ -2836,10 +2841,10 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 <strong class="text-sm font-black uppercase">Sở Xây dựng: PHÊ DUYỆT CẤP SUẤT MUA HỢP LỆ</strong>
 </div>
 <p class="text-slate-600 text-[11px] leading-relaxed">
-                                    Xác nhận người đứng đơn <strong class="text-slate-800 uppercase">Nguyễn Văn Khách</strong> đáp ứng đầy đủ điều kiện thụ hưởng của Luật Nhà ở hiện hành. Sở Xây dựng cấp quyết định duyệt suất mua nhà ở xã hội đợt 3 tại dự án <strong>BIM Green Residence</strong>. Bạn đã đủ điều kiện tiến tới bốc thăm mã căn hộ thực tế.
+                                    Xác nhận người đứng đơn <strong class="text-slate-800 uppercase">Nguyễn Văn Khách</strong> đáp ứng đầy đủ điều kiện thụ hưởng của Luật Nhà ở hiện hành. Sở Xây dựng cấp quyết định duyệt suất mua nhà ở xã hội đợt 3 tại dự án <strong>BIM Green Residence</strong>. Bạn đã đủ điều kiện tiến tới Hoàn tất mã căn hộ thực tế.
                                 </p>
 <button class="bg-[#0b3c26] hover:bg-[#072418] text-white font-extrabold px-6 py-3 rounded-xl transition text-xs shadow-md flex items-center space-x-1.5 block mt-2" onclick="changeWizPanel(11)">
-<span>Tiến hành: Bốc thăm số phòng (Bước 11)</span>
+<span>Tiến hành: Hoàn tất số phòng (Bước 11)</span>
 <i class="fa-solid fa-arrow-right"></i>
 </button>
 </div>
@@ -2859,12 +2864,12 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 </div>
 </div>
 <!-- WIZARD STEP 11: LOTTERY DRAW & DIGITAL SIGNATURE CANVAS -->
-<div class="hidden space-y-6 text-xs" id="wiz-screen-11">
+<div class="hidden space-y-6 text-xs" id="wiz-screen-11" style="display:none!important">
 <!-- Part 1: Lottery Draw -->
 <div class="bg-gradient-to-r from-[#0b3c26] to-[#042416] p-6 rounded-3xl text-white space-y-5 text-center relative overflow-hidden">
 <div class="absolute -right-10 -bottom-10 w-24 h-24 bg-emerald-500/15 rounded-full blur-xl"></div>
 <div class="space-y-1.5">
-<span class="bg-amber-500 text-slate-950 text-[9px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">Hệ thống bốc thăm số</span>
+<span class="bg-amber-500 text-slate-950 text-[9px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">Hệ thống Hoàn tất số</span>
 <h4 class="font-bold text-amber-300">Rút thăm số căn hộ ngẫu nhiên công khai</h4>
 </div>
 <div class="bg-black/30 p-4 rounded-2xl border border-white/5 space-y-3 max-w-sm mx-auto">
@@ -2874,7 +2879,7 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 </div>
 <!-- Success Result card -->
 <div class="hidden p-4 bg-emerald-50 border border-emerald-200 rounded-3xl space-y-4 fade-in" id="wiz-draw-success-card">
-<span class="text-emerald-800 font-extrabold text-sm block" id="wiz-draw-success-text">Chúc mừng! Bạn đã trúng bốc thăm căn hộ: ...</span>
+<span class="text-emerald-800 font-extrabold text-sm block" id="wiz-draw-success-text">Chúc mừng! Bạn đã trúng Hoàn tất căn hộ: ...</span>
 <!-- Part 2: Canvas Signature -->
 <div class="bg-white p-5 rounded-3xl border border-slate-150 space-y-4">
 <div class="p-3.5 bg-slate-50 border border-slate-200/60 rounded-2xl leading-relaxed text-slate-600">
@@ -2892,7 +2897,7 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 <button class="text-slate-400 hover:text-slate-700 text-[10px] transition font-bold" onclick="clearWizSignature()">Xóa chữ ký vẽ lại</button>
 <button class="bg-[#0b3c26] text-white hover:bg-emerald-850 font-extrabold px-5 py-2.5 rounded-xl transition shadow flex items-center space-x-1.5" onclick="submitSignedContract()">
 <i class="fa-solid fa-file-signature"></i>
-<span>Hoàn tất ký số HĐMB</span>
+<span>Hoàn tất Hoàn tất hồ sơ</span>
 </button>
 </div>
 </div>
@@ -2909,7 +2914,7 @@ Bắt đầu đăng ký <i class="fa-solid fa-arrow-right ml-1 text-xs"></i>
 <div class="bg-slate-50 p-4 rounded-2xl border border-slate-150 text-left font-mono space-y-1">
 <div>• Chủ hộ giao dịch: <strong>NGUYỄN VĂN KHÁCH</strong></div>
 <div>• Số định danh VNeID: <strong>034096001234</strong></div>
-<div>• Căn hộ đã bốc thăm: <strong class="text-emerald-800" id="wiz-final-apt-lbl">...</strong></div>
+<div>• Căn hộ đã Hoàn tất: <strong class="text-emerald-800" id="wiz-final-apt-lbl">...</strong></div>
 <div>• Giao dịch: <strong class="text-slate-700">BIM-NOXH-ACTIVE-2026</strong></div>
 </div>
 <button class="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold py-3 rounded-xl transition shadow flex items-center justify-center space-x-2" onclick="resetWizFlow()">
@@ -3089,20 +3094,20 @@ Dẫn tôi đến bước nộp tài liệu
 </div>
 </div>
 <!-- Policy Checkboxes -->
-<div class="space-y-2 text-[10px] text-slate-500 leading-normal">
-<label class="flex items-start space-x-2.5 cursor-pointer">
-<input checked="" class="mt-0.5 text-emerald-700 rounded" id="chk-bvdcn" type="checkbox"/>
-<span>Tôi đồng ý quyền Bảo vệ dữ liệu cá nhân (BVDLCN theo Nghị định 13/2023) và tuân thủ các quy định hiện hành của BIM Land.</span>
+<div class="space-y-2.5" id="brd12-policy-checks">
+<label class="flex items-start gap-2.5 cursor-pointer bg-slate-50 hover:bg-emerald-50/60 border border-slate-200 hover:border-emerald-200 rounded-2xl p-3 transition">
+<input checked="" class="mt-0.5 w-4 h-4 shrink-0 accent-emerald-700 rounded cursor-pointer" id="chk-bvdcn" type="checkbox"/>
+<span class="text-[10.5px] leading-relaxed text-slate-600 font-semibold">Tôi đồng ý quyền <strong class="text-slate-800">Bảo vệ dữ liệu cá nhân (BVDLCN theo Nghị định 13/2023)</strong> và tuân thủ các quy định hiện hành của BIM Land.</span>
 </label>
-<label class="flex items-start space-x-2.5 cursor-pointer">
-<input checked="" class="mt-0.5 text-emerald-700 rounded" id="chk-noxh-confirm" type="checkbox"/>
-<span class="text-emerald-950 font-bold">Tôi xác nhận thuộc đối tượng mua nhà ở xã hội (NOXH) và cam kết các thông tin khai báo là hoàn toàn trung thực, chính xác.</span>
+<label class="flex items-start gap-2.5 cursor-pointer bg-emerald-50/60 hover:bg-emerald-50 border border-emerald-100 hover:border-emerald-200 rounded-2xl p-3 transition">
+<input checked="" class="mt-0.5 w-4 h-4 shrink-0 accent-emerald-700 rounded cursor-pointer" id="chk-noxh-confirm" type="checkbox"/>
+<span class="text-[10.5px] leading-relaxed text-emerald-950 font-bold">Tôi xác nhận thuộc đối tượng mua nhà ở xã hội (NOXH) và cam kết các thông tin khai báo là hoàn toàn trung thực, chính xác.</span>
 </label>
 </div>
 <!-- Actions -->
 <div class="flex space-x-2.5 pt-2">
-<button class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-5 py-3 rounded-xl transition" onclick="closeAuthModal()">Quay lại</button>
-<button class="flex-grow bg-[#0b3c26] text-white hover:bg-emerald-850 font-extrabold py-3 rounded-xl shadow-lg transition flex items-center justify-center space-x-1.5" onclick="submitSignUpForm()">
+<button class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-5 py-3 rounded-xl transition" onclick="backToVerifyStep()" type="button">Quay lại</button>
+<button class="flex-grow bg-[#0b3c26] text-white hover:bg-emerald-850 font-extrabold py-3 rounded-xl shadow-lg transition flex items-center justify-center space-x-1.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#0b3c26] disabled:shadow-none" disabled="" id="btn-submit-signup" onclick="submitSignUpForm()" type="button">
 <i class="fa-solid fa-user-plus"></i>
 <span>Đăng Ký &amp; Kích Hoạt</span>
 </button>
@@ -3480,7 +3485,7 @@ Dẫn tôi đến bước nộp tài liệu
                 else if (step === 8) titleLbl.innerText = "Theo dõi trạng thái hồ sơ mềm (Scan)";
                 else if (step === 9) titleLbl.innerText = "Lịch hẹn mang bản cứng đối soát";
                 else if (step === 10) titleLbl.innerText = "Thẩm duyệt suất mua nhà ở xã hội liên sở";
-                else if (step === 11) titleLbl.innerText = "Bốc thăm số phòng & Ký số thỏa thuận HĐMB";
+                else if (step === 11) titleLbl.innerText = "Hoàn tất số phòng & Ký số thỏa thuận HĐMB";
             }
 
             if (step === 8) {
@@ -3673,7 +3678,7 @@ Dẫn tôi đến bước nộp tài liệu
                 lbl4.innerText = "Thẩm định suất mua";
             }
 
-            // STAGE 5: Bốc thăm & Ký HĐ (Step 11 / 99)
+            // STAGE 5: Hoàn tất thẩm duyệt (Step 11 / 99)
             if (appState.govApprovalStatus === 'approved' && appState.wizardStep >= 11) {
                 if (appState.isSigned) {
                     map5.className = "p-4 rounded-2xl border transition duration-300 flex items-start gap-3 bg-emerald-50 border-emerald-200 opacity-100";
@@ -3815,10 +3820,25 @@ Dẫn tôi đến bước nộp tài liệu
             const val = document.getElementById('reg-otp').value;
             if (val.trim() === "202688") {
                 document.getElementById('auth-unlocked-section').classList.remove('hidden');
+                document.getElementById('auth-unlocked-section').classList.add('brd-otp-ok');
                 appState.otpVerified = true;
                 showToast("Xác thực mã Code thành công! Thiết lập mật khẩu và xác nhận bảo mật.", "success");
                 triggerSystemNotification("Xác thực OTP thành công", "Mã xác thực 202688 hợp lệ. Đã mở khóa thiết lập mật khẩu cá nhân.", 4);
+                if (typeof updateSignupEnabled === 'function') updateSignupEnabled();
             }
+        }
+
+        function backToVerifyStep() {
+            const unlocked = document.getElementById('auth-unlocked-section');
+            unlocked.classList.add('hidden');
+            unlocked.classList.remove('brd-otp-ok');
+            appState.otpVerified = false;
+            document.getElementById('reg-otp').value = "";
+            const otpInput = document.getElementById('reg-otp');
+            if (otpInput) otpInput.focus();
+            const box = document.getElementById('auth-box');
+            if (box) box.scrollTop = 0;
+            if (typeof updateSignupEnabled === 'function') updateSignupEnabled();
         }
 
         function submitSignUpForm() {
@@ -4065,7 +4085,7 @@ Dẫn tôi đến bước nộp tài liệu
             if (status === 'approved') {
                 cardApp.classList.remove('hidden');
                 showToast("Sở Xây dựng Quảng Ninh đã ký phê duyệt suất mua (ĐẠT)!", "success");
-                triggerSystemNotification("Sở Xây dựng: PHÊ DUYỆT CẤP SUẤT MUA", "Cơ quan Nhà nước xác nhận tư cách thụ hưởng NOXH đợt 3 của bạn đạt chuẩn. Hãy tiến hành bốc thăm số phòng!", 11);
+                triggerSystemNotification("Sở Xây dựng: PHÊ DUYỆT CẤP SUẤT MUA", "Cơ quan Nhà nước xác nhận tư cách thụ hưởng NOXH đợt 3 của bạn đạt chuẩn. Hãy tiến hành Hoàn tất số phòng!", 11);
             } else {
                 cardRej.classList.remove('hidden');
                 showToast("Sở Xây dựng từ chối cấp suất mua (KHÔNG ĐẠT)!", "warning");
@@ -4098,11 +4118,11 @@ Dẫn tôi đến bước nộp tài liệu
                     out.innerHTML = `<span class="text-amber-400 font-extrabold text-sm block animate-bounce">${finalApt}</span>`;
                     
                     document.getElementById('wiz-draw-success-card').classList.remove('hidden');
-                    document.getElementById('wiz-draw-success-text').innerText = `Chúc mừng! Bạn đã trúng bốc thăm căn hộ: ${finalApt}`;
+                    document.getElementById('wiz-draw-success-text').innerText = `Chúc mừng! Bạn đã trúng Hoàn tất căn hộ: ${finalApt}`;
                     document.getElementById('wiz-contract-apt-lbl').innerText = finalApt;
 
-                    showToast("Bốc thăm căn hộ thành công!", "success");
-                    triggerSystemNotification("Kết quả bốc thăm căn hộ", "Bốc thăm thành công! Bạn đã rút được mã căn hộ thực tế: " + finalApt + ". Vui lòng ký số HĐMB.", 11);
+                    showToast("Hoàn tất căn hộ thành công!", "success");
+                    triggerSystemNotification("Kết quả Hoàn tất căn hộ", "Hoàn tất thành công! Bạn đã rút được mã căn hộ thực tế: " + finalApt + ". Vui lòng Hoàn tất hồ sơ.", 11);
                 }
             }, 100);
         }
@@ -4338,7 +4358,7 @@ Dẫn tôi đến bước nộp tài liệu
                 8:{badge:'BƯỚC 8/11',title:'Trạng thái hồ sơ mềm (Scan)'},
                 9:{badge:'BƯỚC 9/11',title:'Lịch hẹn bản cứng đối chứng'},
                 10:{badge:'BƯỚC 10/11',title:'Thẩm duyệt suất mua NOXH'},
-                11:{badge:'BƯỚC 11/11',title:'Bốc thăm & Ký số HĐMB'},
+                11:{badge:'BƯỚC 11/11',title:'Hoàn tất thẩm duyệt'},
                 99:{badge:'HOÀN TẤT',title:'Hoàn tất hành trình đăng ký mua'}
             };
             function setTitle(step){
@@ -4384,5 +4404,173 @@ Dẫn tôi đến bước nộp tài liệu
             else setTitle(4);
         })();
     </script>
+
+
+    <script>
+        /* BRD 1.2 UPDATE — logic patch generated on 2026-06-30 */
+        (function(){
+            const STEP_META = {
+                4:{display:5,total:10,title:'Kênh biết đến thông tin dự án'},
+                5:{display:6,total:10,title:'Đăng ký nhóm đối tượng & loại căn'},
+                6:{display:7,total:10,title:'Khai Đơn Mẫu & Upload bản Scan'},
+                7:{display:7,total:10,title:'Khai Đơn Mẫu & Upload bản Scan'},
+                8:{display:8,total:10,title:'Trạng thái hồ sơ mềm'},
+                9:{display:9,total:10,title:'Đối Chứng Bản Cứng (Lịch hẹn)'},
+                10:{display:10,total:10,title:'Thẩm Duyệt Liên Sở'}
+            };
+            function setWizardHeader(step){
+                const meta = STEP_META[Number(step)] || STEP_META[4];
+                const badge = document.getElementById('wiz-current-badge');
+                const title = document.getElementById('wiz-current-title');
+                if(badge) badge.textContent = 'BƯỚC ' + meta.display + '/' + meta.total;
+                if(title) title.textContent = meta.title;
+                const pct = Math.round(((meta.display - 4) / 6) * 100);
+                const bar = document.getElementById('portal-progress-bar'); if(bar) bar.style.width = pct + '%';
+                const lbl = document.getElementById('portal-progress-lbl'); if(lbl) lbl.textContent = pct + '%';
+            }
+            const originalChange = window.changeWizPanel;
+            window.changeWizPanel = function(step){
+                if(Number(step) === 7) step = 6; // Step 7 is merged into screen 6
+                if(Number(step) === 11) step = 10;
+                const result = typeof originalChange === 'function' ? originalChange.call(this, step) : undefined;
+                setTimeout(function(){setWizardHeader(step); renderDynamicDossier();}, 0);
+                return result;
+            };
+            window.addEventListener('DOMContentLoaded', function(){setWizardHeader(4); renderDynamicDossier();});
+
+            // Survey BRD 1.2 logic
+            window.runSurveyCheck = function(){
+                const homeNone = !!document.getElementById('chk-home-none')?.checked;
+                const homeNarrow = !!document.getElementById('chk-home-narrow')?.checked;
+                const homeDist = !!document.getElementById('chk-home-dist')?.checked;
+                const noAid = !!document.getElementById('chk-home-aid')?.checked;
+                const income = document.querySelector('input[name="rad-income"]:checked')?.value || 'high';
+                const okHome = (homeNone || homeNarrow || homeDist) && noAid;
+                const okIncome = income !== 'high';
+                const resultBox = document.getElementById('survey-result-placeholder');
+                if(!resultBox) return;
+                if(okHome && okIncome){
+                    resultBox.className = 'bg-emerald-50 border border-emerald-200 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-emerald-900';
+                    resultBox.innerHTML = '<span class="font-bold"><i class="fa-solid fa-circle-check mr-1"></i> Bạn đang đáp ứng điều kiện sơ bộ theo BRD 1.2. Vui lòng đăng ký tài khoản để tiếp tục số hóa hồ sơ.</span><button onclick="openAuthModal(\'signup\')" class="bg-[#0b3c26] hover:bg-[#072418] text-white font-extrabold px-6 py-2.5 rounded-xl transition text-[11px] shadow whitespace-nowrap">Đăng ký tài khoản ngay</button>';
+                }else{
+                    resultBox.className = 'bg-amber-50 border border-amber-200 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-amber-900';
+                    resultBox.innerHTML = '<span class="font-bold"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Thông tin hiện tại chưa thỏa mãn điều kiện sơ bộ. Bạn có thể mở tài khoản để lưu hồ sơ và được hướng dẫn bổ sung.</span><button onclick="openAuthModal(\'signup\')" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-extrabold px-6 py-2.5 rounded-xl transition text-[11px] shadow whitespace-nowrap"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Đăng ký tài khoản ngay</button>';
+                }
+            };
+
+            // OTP: 300s expiry + 5 wrong attempts lock 10 minutes; enable submit only after OTP + 2 checkboxes
+            let brdOtp = {code:null, expiresAt:0, wrong:0, lockedUntil:0, ok:false};
+            window.brdSendOtp = function(){
+                const now = Date.now();
+                if(now < brdOtp.lockedUntil){ alert('OTP đang bị khóa tạm thời. Vui lòng thử lại sau 10 phút.'); return; }
+                brdOtp.code = '123456'; brdOtp.expiresAt = now + 300000; brdOtp.wrong = 0; brdOtp.ok = false;
+                alert('Mã OTP demo: 123456. Mã có hiệu lực trong 300 giây.');
+            };
+            window.brdVerifyOtp = function(){
+                const input = document.getElementById('reg-otp');
+                const val = (input?.value || '').trim(); const now = Date.now();
+                if(now < brdOtp.lockedUntil){ alert('OTP đang bị khóa tạm thời.'); return false; }
+                if(!brdOtp.code || now > brdOtp.expiresAt){ alert('OTP đã hết hiệu lực sau 300 giây.'); return false; }
+                if(val !== brdOtp.code){ brdOtp.wrong++; if(brdOtp.wrong > 5){brdOtp.lockedUntil = now + 600000; alert('Bạn đã nhập sai OTP quá 5 lần. Tài khoản bị khóa OTP 10 phút.');} else alert('OTP chưa đúng.'); return false; }
+                brdOtp.ok = true; document.getElementById('auth-unlocked-section')?.classList.add('brd-otp-ok'); alert('Xác thực OTP thành công.'); updateSignupEnabled(); return true;
+            };
+            function updateSignupEnabled(){
+                const checks = Array.from(document.querySelectorAll('#form-signup input[type="checkbox"]'));
+                const okChecks = checks.length >= 2 ? checks.slice(-2).every(c=>c.checked) : true;
+                const btns = Array.from(document.querySelectorAll('#form-signup button')).filter(b=>/đăng ký|hoàn tất|tạo tài khoản/i.test(b.textContent));
+                const otpOk = brdOtp.ok || (typeof appState !== 'undefined' && appState.otpVerified);
+                btns.forEach(b=>{b.disabled = !(otpOk && okChecks); b.classList.toggle('opacity-50', b.disabled);});
+            }
+            window.updateSignupEnabled = updateSignupEnabled;
+            document.addEventListener('change', updateSignupEnabled);
+            document.addEventListener('input', function(e){
+                const t=e.target;
+                if(t && (t.id === 'reg-phone' || t.id === 'reg-email' || /cccd/i.test(t.id||''))){
+                    const v=(t.value||'').trim();
+                    if(['034096001234','0962031818','0962136655'].includes(v)){t.setCustomValidity('Thông tin đã tồn tại trong hệ thống');}
+                    else t.setCustomValidity('');
+                }
+            });
+            // Attach to existing OTP field/buttons if file has no explicit OTP functions
+            document.addEventListener('click', function(e){
+                const txt=(e.target?.textContent||'').toLowerCase();
+                if(txt.includes('gửi otp') || txt.includes('lấy otp')){ e.preventDefault(); brdSendOtp(); }
+                if(txt.includes('xác thực otp') || txt.includes('verify otp')){ e.preventDefault(); brdVerifyOtp(); }
+            }, true);
+            updateSignupEnabled();
+
+            // OCR read-only after scan / demo OCR
+            document.addEventListener('click', function(e){
+                if(e.target && (e.target.id === 'btn-cccd-ocr' || (e.target.textContent||'').toLowerCase().includes('ocr'))){
+                    setTimeout(function(){
+                        ['reg-name','reg-cccd','reg-id'].forEach(id=>{const el=document.getElementById(id); if(el){el.readOnly=true; el.setAttribute('readonly','readonly');}});
+                        const labels = document.querySelectorAll('input');
+                        labels.forEach(el=>{ if(/cccd|họ|ten|name/i.test(el.id+' '+el.name+' '+(el.placeholder||''))) {el.readOnly=true; el.setAttribute('readonly','readonly');}});
+                    }, 300);
+                }
+            }, true);
+
+            // Dynamic dossier render by group/subgroup
+            window.renderDynamicDossier = function(){
+                const group = document.getElementById('wiz-selected-group')?.value || 'K5';
+                const sub = document.getElementById('wiz-selected-subgroup')?.value || 'k5-hdld';
+                document.querySelectorAll('#wiz-screen-6 table tbody tr').forEach(tr=>{
+                    const req = tr.getAttribute('data-requires');
+                    let show = true;
+                    if(req === 'k5-hdld') show = (group === 'K5' && sub === 'k5-hdld');
+                    if(req === 'k5-free') show = (group === 'K5' && sub === 'k5-free');
+                    tr.style.display = show ? '' : 'none';
+                });
+            };
+            document.addEventListener('change', function(e){ if(e.target && ['wiz-selected-group','wiz-selected-subgroup'].includes(e.target.id)) renderDynamicDossier(); });
+
+            // File upload format restriction: PNG/JPG/JPEG/PDF only
+            document.addEventListener('change', function(e){
+                const input=e.target;
+                if(input && input.type === 'file'){
+                    const ok = Array.from(input.files||[]).every(f=>/\.(png|jpe?g|pdf)$/i.test(f.name));
+                    if(!ok){ alert('Chỉ chấp nhận tệp PNG, JPG, JPEG hoặc PDF.'); input.value=''; }
+                }
+            });
+
+            // Appointment invoice visible immediately
+            document.addEventListener('click', function(e){
+                const text=(e.target?.textContent||'').toLowerCase();
+                if(text.includes('xác nhận') && text.includes('phiếu hẹn')){
+                    setTimeout(()=>{document.querySelectorAll('#wiz-screen-9 .hidden').forEach(el=>{ if(/phiếu|mã số|lịch hẹn|chủ hộ/i.test(el.textContent)) el.classList.remove('hidden'); });},0);
+                }
+            }, true);
+
+            // Notifications: no auto popup; mark all read
+            window.markAllNotificationsRead = function(event){
+                event?.preventDefault?.(); event?.stopPropagation?.();
+                document.getElementById('bell-dot-light')?.classList.add('hidden');
+                document.getElementById('bell-ping-light')?.classList.add('hidden');
+                document.querySelectorAll('#bell-notifications-panel .bg-red-100').forEach(el=>el.classList.add('hidden'));
+            };
+        })();
+    </script>
+
+
+
+    <script>
+        /* BRD 1.2 UPDATE — countdown disable CTA safeguard */
+        (function(){
+            function disableLandingCtaIfExpired(){
+                const d=parseInt(document.getElementById('hero-cd-days')?.textContent||'0',10);
+                const h=parseInt(document.getElementById('hero-cd-hours')?.textContent||'0',10);
+                const m=parseInt(document.getElementById('hero-cd-mins')?.textContent||'0',10);
+                const s=parseInt(document.getElementById('hero-cd-secs')?.textContent||'0',10);
+                if((d+h+m+s)<=0){
+                    document.querySelectorAll('button[onclick*="openAuthModal(\'signup\')"],button[onclick*="openAuthModal(&quot;signup&quot;)"]').forEach(function(btn){
+                        btn.disabled=true; btn.classList.add('opacity-50','cursor-not-allowed'); btn.setAttribute('aria-disabled','true');
+                    });
+                }
+            }
+            setInterval(disableLandingCtaIfExpired,1000);
+            if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',disableLandingCtaIfExpired); else disableLandingCtaIfExpired();
+        })();
+    </script>
+
 </body>
 </html>
